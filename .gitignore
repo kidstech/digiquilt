@@ -1,0 +1,43 @@
+# DigiQuilt Java/Ant build outputs
+target/
+build/
+dist/
+out/
+
+# Compiled Java artifacts
+*.class
+
+# Package artifacts created by local builds
+*.jar
+*.war
+*.ear
+
+# If you ever use Maven or Gradle tooling locally
+.mvn/
+.gradle/
+
+# IDE/editor files
+.idea/
+*.iml
+.vscode/
+
+# Eclipse metadata (common for projects of this age)
+.classpath
+.project
+.settings/
+
+# macOS filesystem files
+.DS_Store
+
+# Temporary/editor swap files
+*.swp
+*.swo
+*~
+
+# Optional suggestions for this repository:
+# Uncomment if you do not want generated docs/test reports under reports/ tracked.
+# reports/JUnit/
+# reports/Javadoc/
+
+# Uncomment if you package Mac app bundles via Ant jarbundler and do not want them tracked.
+# *.app/
