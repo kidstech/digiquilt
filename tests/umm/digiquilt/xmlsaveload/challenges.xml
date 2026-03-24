@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<Challenges>
+
+    <Challenge>
+        <FractionChallenge>
+            <Name>Name #1</Name>
+            <Fractions>
+                <Item key="WHITE" value="2/8" />
+                <Item key="BLACK" value="1/4" />
+                <Item key="BROWN" value="1/8" />
+                <Item key="TRANSPARENT" value="6/16" />
+            </Fractions>
+        </FractionChallenge>
+    </Challenge>
+    <Challenge>
+        <FractionChallenge>
+            <Name>Name Two</Name>
+            <Fractions>
+                <Item key="INDIGO" value="3/6" />
+                <Item key="REDVIOLET" value="1/2" />
+                <Item key="PINK" value="1/2" />
+            </Fractions>
+        </FractionChallenge>
+    </Challenge>
+    <Challenge>
+        <FractionChallenge>
+            <Name>Third Name</Name>
+            <Fractions>
+                <Item key="REDVIOLET" value="1/8" />
+                <Item key="RED" value="1/8" />
+                <Item key="ORANGE" value="1/8" />
+                <Item key="YELLOW" value="1/8" />
+                <Item key="GREEN" value="1/8" />
+                <Item key="DARKGREEN" value="1/8" />
+                <Item key="BLUE" value="1/8" />
+                <Item key="VIOLET" value="1/8" />
+            </Fractions>
+        </FractionChallenge>
+    </Challenge>
+
+    <!-- The old challenges look like this, and should still work: -->
+    <Challenge>Make whatever you want to!</Challenge>
+</Challenges>

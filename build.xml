@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+An ant build file cribbed from the build file that came with the 
+connectfour example shipped with CruiseControl.
+
+Nic McPhee - 4 Apr 2006
+-->
+
+<project name="DigiQuilt" default="all">
+    
+    <property name="version" value="0.0.1" />
+    
+    <path id="junit-libraries">
+        <fileset dir="jar-libraries">
+            <include name="*.jar" />
+        </fileset>
+    </path>
+    
+    <taskdef name="junit" classname="org.apache.tools.ant.taskdefs.optional.junit.JUnitTask" />
+    
+    <taskdef name="jarbundler"
+        classname="net.sourceforge.jarbundler.JarBundler" >
+        <classpath refid="junit-libraries" />
+    </taskdef>
+    
+    <property name="destination" location="target"/>
+    <property name="client-destination" location="${destination}/DigiQuilt.jar"/>
+    <property name="client-main-class" value="umm.digiquilt.runtime.DigiQuilt" />
+    <property name="server-main-class" value="umm.digiquilt.runtime.DigiQuiltServer" />
+    <property name="server-destination" location="${destination}/DigiQuiltServer.jar"/>
+    <property name="reports" location="reports" />
+    <property name="javadoc-location" location="${reports}/Javadoc"/>
+    <property name="common-classes" location="${destination}/common-classes"/>
+    <property name="client-classes" location="${destination}/client-classes"/>
+    <property name="server-classes" location="${destination}/server-classes"/>
+	<property name="test-classes" location="${destination}/test-classes"/>
+    <property name="test-xml" location="${destination}/test-results"/>
+    <property name="test-html" location="${reports}/JUnit" /> 
+
+    <target name="all" depends="javadoc, compile-all, jar-all, app-all, clean-classfiles" />
+
+    <target name="compile-all" depends="compile-common, compile-client, compile-server, compile-tests" />
+
+    <target name="jar-all" depends="jar-client, jar-server, clean-classfiles" />
+
+    <target name="app-all" depends="client-app, server-app, clean-classfiles" />
+    
+    <target name="compile-jmdns">
+        <mkdir dir="${common-classes}" />
+        <javac source="1.5" srcdir="jmdns" destdir="${common-classes}" />
+    </target>
+
+
+    <target name="compile-common" depends="compile-jmdns">
+        <javac source="1.5" srcdir="common" destdir="${common-classes}" classpath="${common-classes}" />
+        <!-- Copy non-Java resources over -->
+        <copy todir="${common-classes}">
+            <fileset dir="common">
+                <exclude name="**/*.java" />
+                <exclude name="**/*.class" />
+            </fileset>
+        </copy>
+        <copy file="digiquiltsave.dtd" todir="${common-classes}" />
+    </target>
+
+    <target name="compile-client" depends="compile-common">
+        <mkdir dir="${client-classes}" />
+        <javac source="1.5" srcdir="client" destdir="${client-classes}">
+            <classpath>
+                <pathelement location="${common-classes}" />
+            </classpath>
+        </javac>
+        <!-- Copy non-Java resources over -->
+        <copy todir="${client-classes}">
+            <fileset dir="client">
+                <exclude name="**/*.java" />
+                <exclude name="**/*.class" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile-server" depends="compile-common">
+        <mkdir dir="${server-classes}" />
+        <javac source="1.5" srcdir="server" destdir="${server-classes}">
+            <classpath>
+                <pathelement location="${common-classes}" />
+            </classpath>
+        </javac>
+        <!-- Copy non-Java resources over -->
+        <copy todir="${server-classes}">
+            <fileset dir="server">
+                <exclude name="**/*.java" />
+                <exclude name="**/*.class" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile-tests" depends="compile-client, compile-common, compile-server">
+        <mkdir dir="${test-classes}" />
+        <javac source="1.5" srcdir="tests" destdir="${test-classes}">
+            <classpath>
+                <path refid="junit-libraries"/>
+                <pathelement location="${common-classes}" />
+                <pathelement location="${client-classes}" />
+                <pathelement location="${server-classes}" />
+            </classpath>
+        </javac>
+        <!-- Copy non-Java resources over -->
+        <copy todir="${test-classes}">
+            <fileset dir="tests">
+                <exclude name="**/*.java" />
+                <exclude name="**/*.class" />
+            </fileset>
+        </copy>
+    </target>
+
+		<target name="test" depends="compile-all">
+        <path id="junit-full-classpath">
+            <path refid="junit-libraries" />
+            <pathelement location="${common-classes}" /> 
+            <pathelement location="${client-classes}" />
+            <pathelement location="${server-classes}" />
+            <pathelement location="${test-classes}" />
+        </path>
+
+        <taskdef resource="festjunittasks" classpathref="junit-full-classpath" />
+        
+        <mkdir dir="${test-xml}" />
+        <junit forkmode="perBatch" haltonfailure="no" haltonerror="no" printsummary="on" failureproperty="test_failure">
+            <classpath refid="junit-full-classpath" />
+            <formatter classname="org.fest.swing.junit.ant.ScreenshotOnFailureResultFormatter" extension=".xml" />
+            <batchtest fork="yes" todir="${test-xml}">
+                <fileset dir="${test-classes}" includes="**/*Test.class" />
+            </batchtest>
+        </junit>
+
+        <festreport todir="${test-xml}">
+            <classpath refid="junit-full-classpath" />
+            <fileset dir="${test-xml}">
+                <include name="TEST-*.xml" />
+            </fileset>
+            <report format="frames" todir="${test-html}" />
+        </festreport>
+        <delete dir="${test-xml}" />
+    </target> 
+
+    <target name="all-tests-pass" depends="test">
+        <fail if="test_failure" message="One or more tests failed! See ${test-html}/alltests-fails.html for details." />
+    </target> 
+    
+    <target name="javadoc">
+        <javadoc packagenames="umm.digiquilt.*" sourcepath="client;common;server;jmdns" destdir="${javadoc-location}" author="true" version="true" windowtitle="DigiQuilt API">
+            <classpath refid="junit-libraries" />
+
+            <link href="http://java.sun.com/j2se/1.5.0/docs/api/" />
+            <Doctitle>DigiQuilt API</Doctitle>
+            <bottom>Copyright &#169; 2006, Software Design and Development students, University of Minnesota, Morris, Spring, 2006</bottom>
+        </javadoc>
+    </target>
+
+    <target name="jar-client" depends="compile-client">
+        <jar jarfile="${client-destination}">
+            <fileset dir="${client-classes}" />
+            <fileset dir="${common-classes}" />
+            <manifest>
+                <attribute name="Main-Class" value="${client-main-class}" />
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="jar-server" depends="compile-server">
+        <jar jarfile="${server-destination}">
+            <fileset dir="${server-classes}" />
+            <fileset dir="${common-classes}" />
+            <manifest>
+                <attribute name="Main-Class" value="${server-main-class}" />
+            </manifest>
+        </jar>
+    </target>
+
+    
+    <target name="client-app" depends="jar-client">
+
+      <jarbundler dir="${destination}" verbose="false" showPlist="false"
+                  stubfile="jar-libraries/JavaApplicationStub"
+                  name="DigiQuilt"
+                  mainclass="${client-main-class}"
+                  jar="${client-destination}"
+                  icon="client/umm/digiquilt/view/images/client-icon-mac.icns"
+                  jvmversion="1.5+"
+                  version="${version}"/>
+
+    </target>
+    
+    <target name="server-app" depends="jar-server">
+
+      <jarbundler dir="${destination}" verbose="false" showPlist="false"
+                  stubfile="jar-libraries/JavaApplicationStub"
+                  name="DigiQuilt Server"
+                  mainclass="${server-main-class}"
+                  jar="${server-destination}"
+                  icon="server/umm/digiquilt/view/images/server-icon-mac.icns"
+                  jvmversion="1.5+"
+                  version="${version}"/>
+
+    </target>
+    
+    <target name="clean-all">
+        <delete dir="${destination}" />
+        <delete dir="${javadoc-location}" />
+        <delete dir="${test-html}" />
+    </target>
+
+    <target name="clean-classfiles">
+        <delete dir="${client-classes}" />
+        <delete dir="${server-classes}" />
+        <delete dir="${common-classes}" />
+        <delete dir="${test-classes}" />
+    </target>
+
+
+</project>

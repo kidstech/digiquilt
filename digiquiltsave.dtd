@@ -1,0 +1,15 @@
+<!ELEMENT digiquiltsave (block, grid?, Notes, Challenge?, block*)>
+<!ELEMENT Notes (#PCDATA)>
+<!ELEMENT Challenge (#PCDATA)>
+<!ELEMENT grid (line+)>
+<!ELEMENT line (x1,y1,x2,y2)>
+<!ELEMENT x1 (#PCDATA)>
+<!ELEMENT y1 (#PCDATA)>
+<!ELEMENT x2 (#PCDATA)>
+<!ELEMENT y2 (#PCDATA)>
+<!ELEMENT block (patch+)>
+<!ELEMENT patch (fabric+)>
+<!ELEMENT fabric (#PCDATA)>
+
+<!ATTLIST block temporalState CDATA #REQUIRED>
+<!ATTLIST block size (4|9|16) "16">
