@@ -25,8 +25,6 @@ import javax.swing.JScrollPane;
 
 import org.xml.sax.SAXException;
 
-import com.sun.org.apache.xerces.internal.impl.RevalidationHandler;
-
 import umm.digiquilt.model.Block;
 import umm.digiquilt.model.Grid;
 import umm.digiquilt.view.BlockViewer;
