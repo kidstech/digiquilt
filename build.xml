@@ -47,12 +47,12 @@ Nic McPhee - 4 Apr 2006
     
     <target name="compile-jmdns">
         <mkdir dir="${common-classes}" />
-        <javac release="21" srcdir="jmdns" destdir="${common-classes}" />
+        <javac release="21" includeantruntime="false" srcdir="jmdns" destdir="${common-classes}" />
     </target>
 
 
     <target name="compile-common" depends="compile-jmdns">
-        <javac release="21" srcdir="common" destdir="${common-classes}" classpath="${common-classes}" />
+        <javac release="21" includeantruntime="false" srcdir="common" destdir="${common-classes}" classpath="${common-classes}" />
         <!-- Copy non-Java resources over -->
         <copy todir="${common-classes}">
             <fileset dir="common">
@@ -65,7 +65,7 @@ Nic McPhee - 4 Apr 2006
 
     <target name="compile-client" depends="compile-common">
         <mkdir dir="${client-classes}" />
-        <javac release="21" srcdir="client" destdir="${client-classes}">
+        <javac release="21" includeantruntime="false" srcdir="client" destdir="${client-classes}">
             <classpath>
                 <pathelement location="${common-classes}" />
             </classpath>
@@ -81,7 +81,7 @@ Nic McPhee - 4 Apr 2006
 
     <target name="compile-server" depends="compile-common">
         <mkdir dir="${server-classes}" />
-        <javac release="21" srcdir="server" destdir="${server-classes}">
+        <javac release="21" includeantruntime="false" srcdir="server" destdir="${server-classes}">
             <classpath>
                 <pathelement location="${common-classes}" />
             </classpath>
@@ -97,7 +97,7 @@ Nic McPhee - 4 Apr 2006
 
     <target name="compile-tests" depends="compile-client, compile-common, compile-server">
         <mkdir dir="${test-classes}" />
-        <javac release="21" srcdir="tests" destdir="${test-classes}">
+        <javac release="21" includeantruntime="false" srcdir="tests" destdir="${test-classes}">
             <classpath>
                 <path refid="junit-libraries"/>
                 <pathelement location="${common-classes}" />
