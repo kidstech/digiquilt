@@ -17,6 +17,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import umm.digiquilt.savehandler.SaveHandler;
+import umm.digiquilt.server.MdnsNetworkUtil;
 import umm.digiquilt.server.QuiltZeroconf;
 import umm.digiquilt.view.DigiQuiltFrame;
 import umm.digiquilt.view.login.QuiltLogin;
@@ -41,7 +42,7 @@ public class DigiQuilt {
         JmDNS jmdns;
         QuiltZeroconf qz;
         try {
-            jmdns = JmDNS.create();
+            jmdns = MdnsNetworkUtil.createJmDNS();
             qz = new QuiltZeroconf(jmdns);
         } catch (IOException e) {
             // TODO Auto-generated catch block
