@@ -7,6 +7,28 @@ This repository contains two Java applications:
 
 The project uses an Ant build file and is currently set up to build with Java 21.
 
+## Quick Start
+
+Run from the project root:
+
+```sh
+ant clean-classfiles jar-client jar-server
+java -jar target/DigiQuiltServer.jar
+```
+
+In a second terminal:
+
+```sh
+java -jar target/DigiQuilt.jar
+```
+
+Coverage commands:
+
+```sh
+ant coverage
+ant coverage-all-tests-pass
+```
+
 ## Prerequisites
 
 Before building or running the project, make sure you have:
@@ -93,6 +115,16 @@ Compile all source, including tests:
 ```sh
 ant compile-all
 ```
+
+Generate Javadoc API documentation:
+
+```sh
+ant javadoc
+```
+
+Javadoc output:
+
+1. `reports/Javadoc/index.html`
 
 Generate coverage reports (even if some tests fail):
 
