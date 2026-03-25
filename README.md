@@ -94,9 +94,26 @@ Compile all source, including tests:
 ant compile-all
 ```
 
+Generate coverage reports (even if some tests fail):
+
+```sh
+ant coverage
+```
+
+Generate coverage reports and fail the build if any test fails:
+
+```sh
+ant coverage-all-tests-pass
+```
+
+Coverage outputs:
+
+1. HTML report: `reports/Coverage/index.html`
+2. XML report (for VS Code Coverage Gutters): `reports/Coverage/jacoco.xml`
+
 ## Notes
 
 1. Run the server before starting the client.
-2. The client expects the `quilts/` directory to be present.
+2. The client expects the `serverfolders/` directory to be present.
 3. The server expects the `serverfolders/` directory to be present.
 4. The legacy Mac app-bundling targets exist in `build.xml`, but the jar-based commands above are the most reliable way to build and run the project.

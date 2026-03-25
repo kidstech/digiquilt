@@ -35,9 +35,9 @@ out/
 *~
 
 # Optional suggestions for this repository:
-# Uncomment if you do not want generated docs/test reports under reports/ tracked.
-# reports/JUnit/
-# reports/Javadoc/
+reports/JUnit/
+reports/Javadoc/
+reports/Coverage/
 
 # Uncomment if you package Mac app bundles via Ant jarbundler and do not want them tracked.
 # *.app/

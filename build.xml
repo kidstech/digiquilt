@@ -6,7 +6,7 @@ connectfour example shipped with CruiseControl.
 Nic McPhee - 4 Apr 2006
 -->
 
-<project name="DigiQuilt" default="all">
+<project name="DigiQuilt" default="all" xmlns:jacoco="antlib:org.jacoco.ant">
     
     <property name="version" value="0.0.1" />
     
@@ -36,6 +36,13 @@ Nic McPhee - 4 Apr 2006
 	<property name="test-classes" location="${destination}/test-classes"/>
     <property name="test-xml" location="${destination}/test-results"/>
     <property name="test-html" location="${reports}/JUnit" /> 
+    <property name="coverage-location" location="${reports}/Coverage" />
+    <property name="coverage-exec" location="${coverage-location}/jacoco.exec" />
+    <property name="coverage-xml" location="${coverage-location}/jacoco.xml" />
+    <property name="jacoco-version" value="0.8.12" />
+    <property name="jacoco-tools-dir" location="${destination}/tools" />
+    <property name="jacoco-dist-zip" location="${jacoco-tools-dir}/jacoco-${jacoco-version}.zip" />
+    <property name="jacoco-dist-dir" location="${jacoco-tools-dir}/jacoco-${jacoco-version}" />
 
     <target name="all" depends="javadoc, compile-all, jar-all, app-all, clean-classfiles" />
 
@@ -47,12 +54,12 @@ Nic McPhee - 4 Apr 2006
     
     <target name="compile-jmdns">
         <mkdir dir="${common-classes}" />
-        <javac release="21" includeantruntime="false" srcdir="jmdns" destdir="${common-classes}" />
+        <javac release="21" includeantruntime="false" debug="true" srcdir="jmdns" destdir="${common-classes}" />
     </target>
 
 
     <target name="compile-common" depends="compile-jmdns">
-        <javac release="21" includeantruntime="false" srcdir="common" destdir="${common-classes}" classpath="${common-classes}" />
+        <javac release="21" includeantruntime="false" debug="true" srcdir="common" destdir="${common-classes}" classpath="${common-classes}" />
         <!-- Copy non-Java resources over -->
         <copy todir="${common-classes}">
             <fileset dir="common">
@@ -65,7 +72,7 @@ Nic McPhee - 4 Apr 2006
 
     <target name="compile-client" depends="compile-common">
         <mkdir dir="${client-classes}" />
-        <javac release="21" includeantruntime="false" srcdir="client" destdir="${client-classes}">
+        <javac release="21" includeantruntime="false" debug="true" srcdir="client" destdir="${client-classes}">
             <classpath>
                 <pathelement location="${common-classes}" />
             </classpath>
@@ -81,7 +88,7 @@ Nic McPhee - 4 Apr 2006
 
     <target name="compile-server" depends="compile-common">
         <mkdir dir="${server-classes}" />
-        <javac release="21" includeantruntime="false" srcdir="server" destdir="${server-classes}">
+        <javac release="21" includeantruntime="false" debug="true" srcdir="server" destdir="${server-classes}">
             <classpath>
                 <pathelement location="${common-classes}" />
             </classpath>
@@ -97,7 +104,7 @@ Nic McPhee - 4 Apr 2006
 
     <target name="compile-tests" depends="compile-client, compile-common, compile-server">
         <mkdir dir="${test-classes}" />
-        <javac release="21" includeantruntime="false" srcdir="tests" destdir="${test-classes}">
+        <javac release="21" includeantruntime="false" debug="true" srcdir="tests" destdir="${test-classes}">
             <classpath>
                 <path refid="junit-libraries"/>
                 <pathelement location="${common-classes}" />
@@ -143,6 +150,83 @@ Nic McPhee - 4 Apr 2006
         </festreport>
         <delete dir="${test-xml}" />
     </target> 
+
+        <!--
+            Coverage workflow:
+            - Local/dev (always emit reports): ant coverage
+            - Strict/CI (fail build on any test failure): ant coverage-all-tests-pass
+            Coverage artifacts:
+            - HTML report: reports/Coverage/index.html
+            - XML report (for VS Code Coverage Gutters): reports/Coverage/jacoco.xml
+        -->
+        <target name="prepare-coverage-tools">
+        <mkdir dir="${jacoco-tools-dir}" />
+        <get src="https://repo1.maven.org/maven2/org/jacoco/jacoco/${jacoco-version}/jacoco-${jacoco-version}.zip"
+             dest="${jacoco-dist-zip}"
+             skipexisting="true" />
+        <mkdir dir="${jacoco-dist-dir}" />
+        <unzip src="${jacoco-dist-zip}" dest="${jacoco-dist-dir}" overwrite="false" />
+    </target>
+
+    <target name="coverage" depends="compile-all, prepare-coverage-tools">
+        <path id="junit-full-classpath">
+            <path refid="junit-libraries" />
+            <pathelement location="${common-classes}" />
+            <pathelement location="${client-classes}" />
+            <pathelement location="${server-classes}" />
+            <pathelement location="${test-classes}" />
+        </path>
+
+        <path id="jacoco-libraries">
+            <fileset dir="${jacoco-dist-dir}/lib">
+                <include name="*.jar" />
+            </fileset>
+        </path>
+
+        <taskdef uri="antlib:org.jacoco.ant"
+                 resource="org/jacoco/ant/antlib.xml"
+                 classpathref="jacoco-libraries" />
+
+        <mkdir dir="${test-xml}" />
+        <mkdir dir="${coverage-location}" />
+        <delete file="${coverage-exec}" />
+
+        <jacoco:coverage destfile="${coverage-exec}" includes="umm.*:javax.jmdns.*">
+            <junit fork="yes" forkmode="perBatch" haltonfailure="no" haltonerror="no" printsummary="on" failureproperty="test_failure">
+                <classpath refid="junit-full-classpath" />
+                <formatter classname="org.fest.swing.junit.ant.ScreenshotOnFailureResultFormatter" extension=".xml" />
+                <batchtest fork="yes" todir="${test-xml}">
+                    <fileset dir="${test-classes}" includes="**/*Test.class" />
+                </batchtest>
+            </junit>
+        </jacoco:coverage>
+
+        <jacoco:report>
+            <executiondata>
+                <file file="${coverage-exec}" />
+            </executiondata>
+            <structure name="DigiQuilt">
+                <classfiles>
+                    <fileset dir="${common-classes}" />
+                    <fileset dir="${client-classes}" />
+                    <fileset dir="${server-classes}" />
+                </classfiles>
+                <sourcefiles encoding="UTF-8">
+                    <fileset dir="common" />
+                    <fileset dir="client" />
+                    <fileset dir="server" />
+                </sourcefiles>
+            </structure>
+            <html destdir="${coverage-location}" />
+            <xml destfile="${coverage-xml}" />
+        </jacoco:report>
+
+        <delete dir="${test-xml}" />
+    </target>
+
+    <target name="coverage-all-tests-pass" depends="coverage">
+        <fail if="test_failure" message="One or more tests failed during coverage run. See ${coverage-location}/index.html and ${test-html}/alltests-fails.html for details." />
+    </target>
 
     <target name="all-tests-pass" depends="test">
         <fail if="test_failure" message="One or more tests failed! See ${test-html}/alltests-fails.html for details." />
@@ -209,6 +293,7 @@ Nic McPhee - 4 Apr 2006
         <delete dir="${destination}" />
         <delete dir="${javadoc-location}" />
         <delete dir="${test-html}" />
+        <delete dir="${coverage-location}" />
     </target>
 
     <target name="clean-classfiles">
