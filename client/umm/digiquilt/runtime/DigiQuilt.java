@@ -50,7 +50,7 @@ public class DigiQuilt {
             return;
         }
 
-        QuiltLogin login = new QuiltLogin(qz, new File("quilts")); //Pauses until login has been dismissed
+        QuiltLogin login = new QuiltLogin(qz, new File("serverfolders")); //Pauses until login has been dismissed
         qz.addServiceListener(login);
         login.setVisible(true);
         
