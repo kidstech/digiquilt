@@ -177,7 +177,6 @@ public class DQPHandler implements ConnectionHandler {
             }
             out.close();
         } catch (IOException e){
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -303,7 +302,6 @@ public class DQPHandler implements ConnectionHandler {
         try {
             writer.writeToStream(existing, new FileOutputStream(challengeFile));
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } 
         
@@ -330,7 +328,6 @@ public class DQPHandler implements ConnectionHandler {
             }
             out.close();
         } catch (IOException e){
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

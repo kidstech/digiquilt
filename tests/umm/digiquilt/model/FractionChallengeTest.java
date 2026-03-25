@@ -75,25 +75,27 @@ public class FractionChallengeTest {
         String testName = "Test name";
         Map<Fabric, Fraction> testMap = new HashMap<Fabric, Fraction>();
         testMap.put(Fabric.BLACK, new Fraction(1, 8));
+        Date fixedDate = new Date(0);
+        String dateSuffix = " (" + fixedDate.toString() + ").";
 
-        Challenge testChallenge = new FractionChallenge(testName, testMap);
-        assertEquals("(Test name) Create a quilt that is 1/8 Black.", testChallenge.toString());
+        Challenge testChallenge = new FractionChallenge(testName, testMap, fixedDate);
+        assertEquals("(Test name) Create a quilt that is 1/8 Black" + dateSuffix, testChallenge.toString());
         
         testMap.put(Fabric.YELLOW, new Fraction(2, 4));
-        testChallenge = new FractionChallenge(testName, testMap);
-        assertEquals("(Test name) Create a quilt that is 1/8 Black and 2/4 Yellow.", testChallenge.toString());
+        testChallenge = new FractionChallenge(testName, testMap, fixedDate);
+        assertEquals("(Test name) Create a quilt that is 1/8 Black and 2/4 Yellow" + dateSuffix, testChallenge.toString());
         
         testMap.put(Fabric.GREEN, new Fraction(1, 8));
-        testChallenge = new FractionChallenge(testName, testMap);
-        assertEquals("(Test name) Create a quilt that is 1/8 Black, 1/8 Green, and 2/4 Yellow.", testChallenge.toString());
+        testChallenge = new FractionChallenge(testName, testMap, fixedDate);
+        assertEquals("(Test name) Create a quilt that is 1/8 Black, 1/8 Green, and 2/4 Yellow" + dateSuffix, testChallenge.toString());
         
         testMap.put(Fabric.BROWN, new Fraction(2, 16));
-        testChallenge = new FractionChallenge(testName, testMap);
-        assertEquals("(Test name) Create a quilt that is 1/8 Black, 2/16 Brown, 1/8 Green, and 2/4 Yellow.", testChallenge.toString());
+        testChallenge = new FractionChallenge(testName, testMap, fixedDate);
+        assertEquals("(Test name) Create a quilt that is 1/8 Black, 2/16 Brown, 1/8 Green, and 2/4 Yellow" + dateSuffix, testChallenge.toString());
         
         testMap.put(Fabric.INDIGO, new Fraction(4, 32));
-        testChallenge = new FractionChallenge(testName, testMap);
-        assertEquals("(Test name) Create a quilt that is 1/8 Black, 2/16 Brown, 1/8 Green, 4/32 Indigo, and 2/4 Yellow.", testChallenge.toString());
+        testChallenge = new FractionChallenge(testName, testMap, fixedDate);
+        assertEquals("(Test name) Create a quilt that is 1/8 Black, 2/16 Brown, 1/8 Green, 4/32 Indigo, and 2/4 Yellow" + dateSuffix, testChallenge.toString());
         
     }
     

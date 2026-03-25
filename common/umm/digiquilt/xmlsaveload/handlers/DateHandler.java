@@ -71,7 +71,6 @@ public class DateHandler extends DelegatingHandler {
             try {
 				date = sdf.parse(data.toString());
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
             parent.childFinished(date);

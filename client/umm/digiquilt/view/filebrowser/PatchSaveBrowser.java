@@ -202,7 +202,6 @@ public class PatchSaveBrowser extends JDialog{
                         "File I/O Error",
                         JOptionPane.ERROR_MESSAGE);
             } catch (ParserConfigurationException e2) {
-                // TODO Auto-generated catch block
                 e2.printStackTrace();
             }
         }

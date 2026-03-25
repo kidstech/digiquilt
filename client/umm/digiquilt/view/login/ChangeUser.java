@@ -177,7 +177,6 @@ public class ChangeUser extends JDialog{
 		names = handler.getNames();
 	    }
 	} catch (IOException e) {
-	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	    return;
 	}
