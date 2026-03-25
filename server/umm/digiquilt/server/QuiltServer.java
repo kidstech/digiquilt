@@ -4,9 +4,8 @@ package umm.digiquilt.server;
 import java.io.File;
 import java.io.IOException;
 
-import javax.jmdns.JmDNS;
-
 import umm.digiquilt.server.QuiltZeroconf;
+import umm.digiquilt.server.MdnsNetworkUtil;
 
 /**
  * Create and run a DigiQuilt server. This involves advertising it over JmDNS,
@@ -63,7 +62,7 @@ public class QuiltServer implements Runnable {
      * @throws IOException
      */
     protected QuiltZeroconf getQuiltZeroconf() throws IOException {
-        return new QuiltZeroconf(JmDNS.create());
+        return new QuiltZeroconf(MdnsNetworkUtil.createJmDNS());
     }
 
 
