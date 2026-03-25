@@ -39,6 +39,14 @@ Nic McPhee - 4 Apr 2006
     <property name="coverage-location" location="${reports}/Coverage" />
     <property name="coverage-exec" location="${coverage-location}/jacoco.exec" />
     <property name="coverage-xml" location="${coverage-location}/jacoco.xml" />
+    <property name="jmdns-version" value="3.5.12" />
+    <property name="jmdns-jar" value="jmdns-${jmdns-version}.jar" />
+    <property name="jmdns-jar-path" location="jar-libraries/${jmdns-jar}" />
+    <property name="slf4j-version" value="1.7.36" />
+    <property name="slf4j-api-jar" value="slf4j-api-${slf4j-version}.jar" />
+    <property name="slf4j-api-jar-path" location="jar-libraries/${slf4j-api-jar}" />
+    <property name="slf4j-simple-jar" value="slf4j-simple-${slf4j-version}.jar" />
+    <property name="slf4j-simple-jar-path" location="jar-libraries/${slf4j-simple-jar}" />
     <property name="jacoco-version" value="0.8.12" />
     <property name="jacoco-tools-dir" location="${destination}/tools" />
     <property name="jacoco-dist-zip" location="${jacoco-tools-dir}/jacoco-${jacoco-version}.zip" />
@@ -52,14 +60,27 @@ Nic McPhee - 4 Apr 2006
 
     <target name="app-all" depends="client-app, server-app, clean-classfiles" />
     
-    <target name="compile-jmdns">
-        <mkdir dir="${common-classes}" />
-        <javac release="21" includeantruntime="false" debug="true" srcdir="jmdns" destdir="${common-classes}" />
+    <target name="prepare-jmdns">
+        <get src="https://repo1.maven.org/maven2/org/jmdns/jmdns/${jmdns-version}/${jmdns-jar}"
+             dest="${jmdns-jar-path}"
+             skipexisting="true" />
+           <get src="https://repo1.maven.org/maven2/org/slf4j/slf4j-api/${slf4j-version}/${slf4j-api-jar}"
+               dest="${slf4j-api-jar-path}"
+               skipexisting="true" />
+           <get src="https://repo1.maven.org/maven2/org/slf4j/slf4j-simple/${slf4j-version}/${slf4j-simple-jar}"
+               dest="${slf4j-simple-jar-path}"
+               skipexisting="true" />
     </target>
 
 
-    <target name="compile-common" depends="compile-jmdns">
-        <javac release="21" includeantruntime="false" debug="true" srcdir="common" destdir="${common-classes}" classpath="${common-classes}" />
+    <target name="compile-common" depends="prepare-jmdns">
+        <mkdir dir="${common-classes}" />
+        <javac release="21" includeantruntime="false" debug="true" srcdir="common" destdir="${common-classes}">
+            <classpath>
+                <path refid="junit-libraries" />
+                <pathelement location="${common-classes}" />
+            </classpath>
+        </javac>
         <!-- Copy non-Java resources over -->
         <copy todir="${common-classes}">
             <fileset dir="common">
@@ -74,6 +95,7 @@ Nic McPhee - 4 Apr 2006
         <mkdir dir="${client-classes}" />
         <javac release="21" includeantruntime="false" debug="true" srcdir="client" destdir="${client-classes}">
             <classpath>
+                <path refid="junit-libraries" />
                 <pathelement location="${common-classes}" />
             </classpath>
         </javac>
@@ -90,6 +112,7 @@ Nic McPhee - 4 Apr 2006
         <mkdir dir="${server-classes}" />
         <javac release="21" includeantruntime="false" debug="true" srcdir="server" destdir="${server-classes}">
             <classpath>
+                <path refid="junit-libraries" />
                 <pathelement location="${common-classes}" />
             </classpath>
         </javac>
@@ -233,7 +256,7 @@ Nic McPhee - 4 Apr 2006
     </target> 
     
     <target name="javadoc">
-        <javadoc packagenames="umm.digiquilt.*" sourcepath="client;common;server;jmdns" destdir="${javadoc-location}" author="true" version="true" windowtitle="DigiQuilt API">
+        <javadoc packagenames="umm.digiquilt.*" sourcepath="client;common;server" destdir="${javadoc-location}" author="true" version="true" windowtitle="DigiQuilt API">
             <classpath refid="junit-libraries" />
 
             <link href="http://java.sun.com/j2se/1.5.0/docs/api/" />
@@ -246,6 +269,9 @@ Nic McPhee - 4 Apr 2006
         <jar jarfile="${client-destination}">
             <fileset dir="${client-classes}" />
             <fileset dir="${common-classes}" />
+            <zipfileset src="${jmdns-jar-path}" excludes="META-INF/**" />
+            <zipfileset src="${slf4j-api-jar-path}" excludes="META-INF/**" />
+            <zipfileset src="${slf4j-simple-jar-path}" excludes="META-INF/**" />
             <manifest>
                 <attribute name="Main-Class" value="${client-main-class}" />
             </manifest>
@@ -256,6 +282,9 @@ Nic McPhee - 4 Apr 2006
         <jar jarfile="${server-destination}">
             <fileset dir="${server-classes}" />
             <fileset dir="${common-classes}" />
+            <zipfileset src="${jmdns-jar-path}" excludes="META-INF/**" />
+            <zipfileset src="${slf4j-api-jar-path}" excludes="META-INF/**" />
+            <zipfileset src="${slf4j-simple-jar-path}" excludes="META-INF/**" />
             <manifest>
                 <attribute name="Main-Class" value="${server-main-class}" />
             </manifest>
