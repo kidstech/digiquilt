@@ -158,19 +158,24 @@ Nic McPhee - 4 Apr 2006
         <mkdir dir="${test-xml}" />
         <junit forkmode="perBatch" haltonfailure="no" haltonerror="no" printsummary="on" failureproperty="test_failure">
             <classpath refid="junit-full-classpath" />
+            <jvmarg value="--add-opens=java.base/java.lang=ALL-UNNAMED" />
+            <jvmarg value="--add-opens=java.base/java.lang.reflect=ALL-UNNAMED" />
+            <jvmarg value="--add-opens=java.base/java.net=ALL-UNNAMED" />
+            <jvmarg value="--add-opens=java.base/javax.net=ALL-UNNAMED" />
+            <jvmarg value="--add-opens=java.base/java.util=ALL-UNNAMED" />
+            <jvmarg value="--add-opens=java.desktop/java.awt=ALL-UNNAMED" />
             <formatter classname="org.fest.swing.junit.ant.ScreenshotOnFailureResultFormatter" extension=".xml" />
             <batchtest fork="yes" todir="${test-xml}">
                 <fileset dir="${test-classes}" includes="**/*Test.class" />
             </batchtest>
         </junit>
 
-        <festreport todir="${test-xml}">
-            <classpath refid="junit-full-classpath" />
+        <junitreport todir="${test-xml}">
             <fileset dir="${test-xml}">
                 <include name="TEST-*.xml" />
             </fileset>
             <report format="frames" todir="${test-html}" />
-        </festreport>
+        </junitreport>
         <delete dir="${test-xml}" />
     </target> 
 
@@ -217,6 +222,12 @@ Nic McPhee - 4 Apr 2006
         <jacoco:coverage destfile="${coverage-exec}" includes="umm.*:javax.jmdns.*">
             <junit fork="yes" forkmode="perBatch" haltonfailure="no" haltonerror="no" printsummary="on" failureproperty="test_failure">
                 <classpath refid="junit-full-classpath" />
+                <jvmarg value="--add-opens=java.base/java.lang=ALL-UNNAMED" />
+                <jvmarg value="--add-opens=java.base/java.lang.reflect=ALL-UNNAMED" />
+                <jvmarg value="--add-opens=java.base/java.net=ALL-UNNAMED" />
+                <jvmarg value="--add-opens=java.base/javax.net=ALL-UNNAMED" />
+                <jvmarg value="--add-opens=java.base/java.util=ALL-UNNAMED" />
+                <jvmarg value="--add-opens=java.desktop/java.awt=ALL-UNNAMED" />
                 <formatter classname="org.fest.swing.junit.ant.ScreenshotOnFailureResultFormatter" extension=".xml" />
                 <batchtest fork="yes" todir="${test-xml}">
                     <fileset dir="${test-classes}" includes="**/*Test.class" />

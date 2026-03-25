@@ -14,6 +14,7 @@ import java.beans.PropertyChangeListener;
 import javax.swing.JFrame;
 
 import org.fest.swing.edt.GuiActionRunner;
+import org.fest.swing.edt.GuiTask;
 import org.fest.swing.edt.GuiQuery;
 import org.junit.After;
 import org.junit.Before;
@@ -70,7 +71,15 @@ public class AnimationPanelTest {
      */
     @After
     public void closeFrame(){
-        frame.dispose();
+        if (frame != null) {
+            final JFrame frameToClose = frame;
+            GuiActionRunner.execute(new GuiTask() {
+                @Override
+                protected void executeInEDT() {
+                    frameToClose.dispose();
+                }
+            });
+        }
     }
 
 

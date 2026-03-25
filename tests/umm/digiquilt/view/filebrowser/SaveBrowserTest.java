@@ -31,7 +31,6 @@ import umm.digiquilt.model.works.BlockWorks;
 import umm.digiquilt.savehandler.SaveHandler;
 import umm.digiquilt.view.BlockViewer;
 import umm.digiquilt.view.GridViewPanel;
-import umm.digiquilt.view.filebrowser.BlockSaveBrowser;
 import umm.digiquilt.xmlsaveload.LoadXML;
 import umm.digiquilt.xmlsaveload.SaveBlockXML;
 
@@ -59,7 +58,9 @@ public class SaveBrowserTest {
      */
     @After
     public void tearDown() throws Exception {
-        testBrowser.cleanUp();
+                if (testBrowser != null) {
+                        testBrowser.cleanUp();
+                }
     }
 
     /**
@@ -162,7 +163,9 @@ public class SaveBrowserTest {
         SaveBlockXML xml = captor.getValue();
         ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
         xml.writeDocumentToStream(byteOut);
-        xml.writeOutDocumentToFile(new File("/Users/Scott/test.xml.gz"));
+        File tempOutput = File.createTempFile("save-browser-test", ".xml.gz");
+        tempOutput.deleteOnExit();
+        xml.writeOutDocumentToFile(tempOutput);
         byte[] writtenXML = byteOut.toByteArray();
         
         LoadXML loader = new LoadXML(new ByteArrayInputStream(writtenXML));
