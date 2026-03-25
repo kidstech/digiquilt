@@ -86,7 +86,6 @@ public class CreateChallengeAction implements ActionListener {
                 
                 e1.printStackTrace();
             } catch (SAXException se) {
-                // TODO Auto-generated catch block
                 se.printStackTrace();
             }
         }

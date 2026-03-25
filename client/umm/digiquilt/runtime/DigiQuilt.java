@@ -45,7 +45,6 @@ public class DigiQuilt {
             jmdns = MdnsNetworkUtil.createJmDNS();
             qz = new QuiltZeroconf(jmdns);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return;
         }
@@ -61,7 +60,6 @@ public class DigiQuilt {
         try {
             handler.synchronize();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         DigiQuiltFrame frame = new DigiQuiltFrame(handler);

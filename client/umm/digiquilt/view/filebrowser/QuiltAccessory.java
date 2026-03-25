@@ -111,13 +111,10 @@ public class QuiltAccessory extends JPanel implements PropertyChangeListener {
                 challenge.setText("<html>"+loader.getChallenge());
 
             } catch (FileNotFoundException e1) {
-                // TODO Auto-generated catch block
                 e1.printStackTrace();
             } catch (IOException e1) {
-                // TODO Auto-generated catch block
                 e1.printStackTrace();
             } catch (SAXException e1) {
-                // TODO Auto-generated catch block
                 e1.printStackTrace();
             }
             System.out.println(selected.getPath());

@@ -111,13 +111,10 @@ public class PatchAccessory extends JPanel implements PropertyChangeListener {
                 challenge.setText("<html>"+loader.getChallenge());
 
             } catch (FileNotFoundException e1) {
-                // TODO Auto-generated catch block
                 e1.printStackTrace();
             } catch (IOException e1) {
-                // TODO Auto-generated catch block
                 e1.printStackTrace();
             } catch (SAXException e1) {
-                // TODO Auto-generated catch block
                 e1.printStackTrace();
             }
             String imageLocation = selected.getPath().replaceFirst(SaveHandler.PATCH_EXT+"$", SaveHandler.PATCH_IMAGE_EXT);
@@ -134,7 +131,6 @@ public class PatchAccessory extends JPanel implements PropertyChangeListener {
                     
                     preview.setIcon(new ImageIcon(scaled));
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
                 
