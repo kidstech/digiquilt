@@ -7,6 +7,28 @@ This repository contains two Java applications:
 
 The project uses an Ant build file and is currently set up to build with Java 21.
 
+## Quick Start
+
+Run from the project root:
+
+```sh
+ant clean-classfiles jar-client jar-server
+java -jar target/DigiQuiltServer.jar
+```
+
+In a second terminal:
+
+```sh
+java -jar target/DigiQuilt.jar
+```
+
+Coverage commands:
+
+```sh
+ant coverage
+ant coverage-all-tests-pass
+```
+
 ## Prerequisites
 
 Before building or running the project, make sure you have:
@@ -94,9 +116,36 @@ Compile all source, including tests:
 ant compile-all
 ```
 
+Generate Javadoc API documentation:
+
+```sh
+ant javadoc
+```
+
+Javadoc output:
+
+1. `reports/Javadoc/index.html`
+
+Generate coverage reports (even if some tests fail):
+
+```sh
+ant coverage
+```
+
+Generate coverage reports and fail the build if any test fails:
+
+```sh
+ant coverage-all-tests-pass
+```
+
+Coverage outputs:
+
+1. HTML report: `reports/Coverage/index.html`
+2. XML report (for VS Code Coverage Gutters): `reports/Coverage/jacoco.xml`
+
 ## Notes
 
 1. Run the server before starting the client.
-2. The client expects the `quilts/` directory to be present.
+2. The client expects the `serverfolders/` directory to be present.
 3. The server expects the `serverfolders/` directory to be present.
 4. The legacy Mac app-bundling targets exist in `build.xml`, but the jar-based commands above are the most reliable way to build and run the project.
