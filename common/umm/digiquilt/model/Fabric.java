@@ -41,11 +41,11 @@ public enum Fabric {
     /**
      * Green fabric.
      */
-    GREEN (new Color(175, 200, 135), "Light Green"), 
+    GREEN (new Color(160, 187, 130), "Light Green"), 
     /**
      * Dark green fabric.
      */
-    DARKGREEN (new Color(125, 180, 125), "Green"), 
+    DARKGREEN (new Color(79, 140, 105), "Green"), 
     /**
      * Blue fabric.
      */
