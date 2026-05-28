@@ -100,16 +100,16 @@ public final class FabricPalette extends JPanel {
         constraints.gridy = 0;
         this.add(paletteLabel, constraints);
 
+        buttonCreator("Pink", Fabric.PINK, 10);
         buttonCreator(Fabric.REDVIOLET.getName(), Fabric.REDVIOLET, 1);
         buttonCreator("Red", Fabric.RED, 2);
         buttonCreator("Orange", Fabric.ORANGE, 3);
         buttonCreator("Yellow", Fabric.YELLOW, 4);
         buttonCreator(Fabric.GREEN.getName(), Fabric.GREEN, 5);
         buttonCreator(Fabric.DARKGREEN.getName(), Fabric.DARKGREEN, 6);
-        buttonCreator("Blue", Fabric.BLUE, 7);
         buttonCreator(Fabric.INDIGO.getName(), Fabric.INDIGO, 8);
+        buttonCreator("Blue", Fabric.BLUE, 7);
         buttonCreator("Violet", Fabric.VIOLET, 9);
-        buttonCreator("Pink", Fabric.PINK, 10);
         buttonCreator("White", Fabric.WHITE, 11);
         buttonCreator("Black", Fabric.BLACK, 12);
         buttonCreator("Brown", Fabric.BROWN, 13);
