@@ -23,57 +23,57 @@ public enum Fabric {
      */
     GRAY (Color.GRAY, "Gray"), 
     /**
-     * Red violet fabric.
+     * Dark pink fabric.
      */
-    REDVIOLET (new Color(205, 0, 103), "Red Violet"), 
+    REDVIOLET (new Color(205, 80, 120), "Dark Pink"), 
     /**
      * Red fabric.
      */
-    RED (new Color(234, 43, 30), "Red"), 
+    RED (new Color(180, 65, 80), "Red"), 
     /**
      * Orange fabric.
      */
-    ORANGE (new Color(255, 169, 33), "Orange"), 
+    ORANGE (new Color(230, 150, 100), "Orange"), 
     /**
      * Yellow fabric.
      */
-    YELLOW (Color.YELLOW, "Yellow"), 
+    YELLOW (new Color(240, 215, 50), "Yellow"), 
     /**
      * Green fabric.
      */
-    GREEN (new Color(77, 209, 0), "Green"), 
+    GREEN (new Color(160, 187, 130), "Light Green"), 
     /**
      * Dark green fabric.
      */
-    DARKGREEN (new Color(52, 102, 51), "Dark Green"), 
+    DARKGREEN (new Color(79, 140, 105), "Green"), 
     /**
      * Blue fabric.
      */
-    BLUE (new Color(0, 57, 228), "Blue"), 
+    BLUE (new Color(60, 100, 190), "Blue"), 
     /**
-     * Indigo fabric.
+     * Indigo fabric. 131, 196, 242
      */
-    INDIGO (new Color(102, 0, 205), "Indigo"),
+    INDIGO (new Color(131, 175, 208), "Light Blue"),
     /**
      * Violet fabric.
      */
-    VIOLET (new Color(153, 0, 153), "Violet"), 
+    VIOLET (new Color(117,88, 154), "Violet"), 
     /**
      * Pink fabric.
      */
-    PINK (new Color(255, 124, 161), "Pink"), 
+    PINK (new Color(220, 150, 160), "Pink"), 
     /**
      * White fabric.
      */
-    WHITE (Color.WHITE, "White"), 
+    WHITE (new Color(246, 236, 235), "White"), 
     /**
      * Black fabric.
      */
-    BLACK (Color.BLACK, "Black"), 
+    BLACK (new Color(65, 63, 68), "Black"), 
     /**
      * Brown fabric.
      */
-    BROWN (new Color(153, 52, 0), "Brown"), 
+    BROWN (new Color(120, 90, 70), "Brown"), 
     /**
      * Transparent fabric.
      */
