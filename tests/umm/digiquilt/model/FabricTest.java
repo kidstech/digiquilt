@@ -22,33 +22,33 @@ public class FabricTest{
 		assertEquals("The color for the gray fabric should be gray",
 				Fabric.GRAY.getColor(), Color.GRAY);
 		assertEquals(
-				"The color for the dark pink fabric should be dark pink",
-				Fabric.REDVIOLET.getColor(), new Color(205, 80, 120));
+				"The color for the red violet fabric should be red violet",
+				Fabric.REDVIOLET.getColor(), new Color(205, 0, 103));
 		assertEquals("The color for the red fabric should be red", Fabric.RED
-				.getColor(), new Color(180, 65, 80));
+				.getColor(), new Color(234, 43, 30));
 		assertEquals("The color for the orange fabric should be orange",
-				Fabric.ORANGE.getColor(), new Color(230, 150, 100));
+				Fabric.ORANGE.getColor(), new Color(255, 169, 33));
 		assertEquals("The color for the yellow fabric should be yellow",
-				Fabric.YELLOW.getColor(), new Color(240, 215, 50));
+				Fabric.YELLOW.getColor(), Color.YELLOW);
 		assertEquals("The color for the green fabric should be green",
-				Fabric.GREEN.getColor(), new Color(175, 200, 135));
+				Fabric.GREEN.getColor(), new Color(77, 209, 0));
 		assertEquals(
 				"The color for the dark green fabric should be dark green",
-				Fabric.DARKGREEN.getColor(), new Color(125, 180, 125));
+				Fabric.DARKGREEN.getColor(), new Color(52, 102, 51));
 		assertEquals("The color for the blue fabric should be blue",
-				Fabric.BLUE.getColor(), new Color(60, 100, 190));
-		assertEquals("The color for the light blue fabric should be light blue",
-				Fabric.INDIGO.getColor(), new Color(131, 175, 208));
+				Fabric.BLUE.getColor(), new Color(0, 57, 228));
+		assertEquals("The color for the indigo fabric should be indigo",
+				Fabric.INDIGO.getColor(), new Color(102, 0, 205));
 		assertEquals("The color for the violet fabric should be violet",
-				Fabric.VIOLET.getColor(), new Color(117, 88, 154));
+				Fabric.VIOLET.getColor(), new Color(153, 0, 153));
 		assertEquals("The color for the pink fabric should be pink",
-				Fabric.PINK.getColor(), new Color(220, 150, 160));
+				Fabric.PINK.getColor(), new Color(255, 124, 161));
 		assertEquals("The color for the white fabric should be white",
-				Fabric.WHITE.getColor(), new Color(246, 236, 235));
+				Fabric.WHITE.getColor(), Color.WHITE);
 		assertEquals("The color for the black fabric should be black",
-				Fabric.BLACK.getColor(), new Color(65, 63, 68));
+				Fabric.BLACK.getColor(), Color.BLACK);
 		assertEquals("The color for the brown fabric should be brown",
-				Fabric.BROWN.getColor(), new Color(120, 90, 70));
+				Fabric.BROWN.getColor(), new Color(153, 52, 0));
 		assertEquals("The color for the transparent fabric should be gray with a 0 alpha",
 				Fabric.TRANSPARENT.getColor(), new Color(128, 128, 128, 0));
 	}
@@ -61,7 +61,7 @@ public class FabricTest{
 	    assertEquals("Fabric name was incorrect", 
 	            "Gray", Fabric.GRAY.getName());
 	    assertEquals("Fabric name was incorrect", 
-                "Dark Pink", Fabric.REDVIOLET.getName());
+                "Red Violet", Fabric.REDVIOLET.getName());
 	    assertEquals("Fabric name was incorrect", 
                 "Red", Fabric.RED.getName());
 	    assertEquals("Fabric name was incorrect", 
@@ -69,13 +69,13 @@ public class FabricTest{
 	    assertEquals("Fabric name was incorrect", 
                 "Yellow", Fabric.YELLOW.getName());
 	    assertEquals("Fabric name was incorrect", 
-                "Light Green", Fabric.GREEN.getName());
+                "Green", Fabric.GREEN.getName());
 	    assertEquals("Fabric name was incorrect", 
-                "Green", Fabric.DARKGREEN.getName());
+                "Dark Green", Fabric.DARKGREEN.getName());
 	    assertEquals("Fabric name was incorrect", 
                 "Blue", Fabric.BLUE.getName());
 	    assertEquals("Fabric name was incorrect", 
-                "Light Blue", Fabric.INDIGO.getName());
+                "Indigo", Fabric.INDIGO.getName());
 	    assertEquals("Fabric name was incorrect", 
                 "Violet", Fabric.VIOLET.getName());
 	    assertEquals("Fabric name was incorrect", 
@@ -109,11 +109,11 @@ public class FabricTest{
 	    assertEquals("getGoodTextColor() returned wrong color", 
                 Color.BLACK, Fabric.GREEN.getGoodTextColor());
 	    assertEquals("getGoodTextColor() returned wrong color", 
-                Color.BLACK, Fabric.DARKGREEN.getGoodTextColor());
+                Color.WHITE, Fabric.DARKGREEN.getGoodTextColor());
 	    assertEquals("getGoodTextColor() returned wrong color", 
                 Color.WHITE, Fabric.BLUE.getGoodTextColor());
 	    assertEquals("getGoodTextColor() returned wrong color", 
-                Color.BLACK, Fabric.INDIGO.getGoodTextColor());
+                Color.WHITE, Fabric.INDIGO.getGoodTextColor());
 	    assertEquals("getGoodTextColor() returned wrong color", 
                 Color.WHITE, Fabric.VIOLET.getGoodTextColor());
 	    assertEquals("getGoodTextColor() returned wrong color", 
