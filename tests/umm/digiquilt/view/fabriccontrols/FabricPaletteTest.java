@@ -90,7 +90,7 @@ public class FabricPaletteTest{
         TestFabricListener testListener = new TestFabricListener();
         palette.addFabricListener(testListener);
         
-        window.button("Red Violet").click();
+        window.button("Dark Pink").click();
         assertEquals("Fabric change was not sent",
                 Fabric.REDVIOLET, testListener.lastFabric);
         
@@ -106,11 +106,11 @@ public class FabricPaletteTest{
         assertEquals("Fabric change was not sent",
                 Fabric.YELLOW, testListener.lastFabric);
         
-        window.button("Green").click();
+        window.button("Light Green").click();
         assertEquals("Fabric change was not sent",
                 Fabric.GREEN, testListener.lastFabric);
         
-        window.button("Dark Green").click();
+        window.button("Green").click();
         assertEquals("Fabric change was not sent",
                 Fabric.DARKGREEN, testListener.lastFabric);
         
@@ -118,7 +118,7 @@ public class FabricPaletteTest{
         assertEquals("Fabric change was not sent",
                 Fabric.BLUE, testListener.lastFabric);
         
-        window.button("Indigo").click();
+        window.button("Light Blue").click();
         assertEquals("Fabric change was not sent",
                 Fabric.INDIGO, testListener.lastFabric);
         
@@ -143,7 +143,7 @@ public class FabricPaletteTest{
                 Fabric.BROWN, testListener.lastFabric);
         
         palette.removeFabricListener(testListener);
-        window.button("Red Violet").click();
+        window.button("Dark Pink").click();
         assertEquals("Fabric changed after listener was unsubscribed", 
                 Fabric.BROWN, testListener.lastFabric);
         
@@ -171,7 +171,7 @@ public class FabricPaletteTest{
         blockWorks.setPatch(Shape.FULLSQUARE.getPatch(Fabric.BROWN), 12);
 
         checkFractionButton(
-                window.button("Red Violet fraction"), Fabric.REDVIOLET);
+                window.button("Dark Pink fraction"), Fabric.REDVIOLET);
         checkFractionButton(
                 window.button("Red fraction"), Fabric.RED);
         checkFractionButton(
@@ -179,13 +179,13 @@ public class FabricPaletteTest{
         checkFractionButton(
                 window.button("Yellow fraction"), Fabric.YELLOW);
         checkFractionButton(
-                window.button("Green fraction"), Fabric.GREEN);
+                window.button("Light Green fraction"), Fabric.GREEN);
         checkFractionButton(
-                window.button("Dark Green fraction"), Fabric.DARKGREEN);
+                window.button("Green fraction"), Fabric.DARKGREEN);
         checkFractionButton(
                 window.button("Blue fraction"), Fabric.BLUE);
         checkFractionButton(
-                window.button("Indigo fraction"), Fabric.INDIGO);
+                window.button("Light Blue fraction"), Fabric.INDIGO);
         checkFractionButton(
                 window.button("Violet fraction"), Fabric.VIOLET);
         checkFractionButton(
@@ -255,24 +255,24 @@ public class FabricPaletteTest{
 
         
         // Click on some fractions to inflate them
-        window.button("Green fraction").click();
-        window.button("Green fraction").click();
+        window.button("Light Green fraction").click();
+        window.button("Light Green fraction").click();
         
         window.button("Black fraction").click();
         
         window.button("White fraction").click();
         
         Map<Fabric, Fraction> expected = new HashMap<Fabric, Fraction>();
+        expected.put(Fabric.PINK, new Fraction(1, 16));
         expected.put(Fabric.REDVIOLET, new Fraction(1, 16));
         expected.put(Fabric.RED, new Fraction(1, 16));
         expected.put(Fabric.ORANGE, new Fraction(1, 16));
         expected.put(Fabric.YELLOW, new Fraction(1, 8));
         expected.put(Fabric.GREEN, new Fraction(3, 48));
         expected.put(Fabric.DARKGREEN, new Fraction(1, 16));
-        expected.put(Fabric.BLUE, new Fraction(1, 16));
         expected.put(Fabric.INDIGO, new Fraction(1, 8));
+        expected.put(Fabric.BLUE, new Fraction(1, 16));
         expected.put(Fabric.VIOLET, new Fraction(1, 16));
-        expected.put(Fabric.PINK, new Fraction(1, 16));
         expected.put(Fabric.WHITE, new Fraction(2, 16));
         expected.put(Fabric.BLACK, new Fraction(2, 32));
         expected.put(Fabric.BROWN, new Fraction(1, 16));
