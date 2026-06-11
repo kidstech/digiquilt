@@ -31,10 +31,10 @@ public class FabricTest{
 		assertEquals("The color for the yellow fabric should be yellow",
 				Fabric.YELLOW.getColor(), new Color(240, 215, 50));
 		assertEquals("The color for the green fabric should be green",
-				Fabric.GREEN.getColor(), new Color(175, 200, 135));
+				Fabric.GREEN.getColor(), new Color(160, 187, 130));
 		assertEquals(
 				"The color for the dark green fabric should be dark green",
-				Fabric.DARKGREEN.getColor(), new Color(125, 180, 125));
+				Fabric.DARKGREEN.getColor(), new Color(79, 140, 105));
 		assertEquals("The color for the blue fabric should be blue",
 				Fabric.BLUE.getColor(), new Color(60, 100, 190));
 		assertEquals("The color for the light blue fabric should be light blue",
@@ -109,7 +109,7 @@ public class FabricTest{
 	    assertEquals("getGoodTextColor() returned wrong color", 
                 Color.BLACK, Fabric.GREEN.getGoodTextColor());
 	    assertEquals("getGoodTextColor() returned wrong color", 
-                Color.BLACK, Fabric.DARKGREEN.getGoodTextColor());
+                Color.WHITE, Fabric.DARKGREEN.getGoodTextColor());
 	    assertEquals("getGoodTextColor() returned wrong color", 
                 Color.WHITE, Fabric.BLUE.getGoodTextColor());
 	    assertEquals("getGoodTextColor() returned wrong color", 
