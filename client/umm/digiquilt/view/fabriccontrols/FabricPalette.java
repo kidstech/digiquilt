@@ -100,19 +100,19 @@ public final class FabricPalette extends JPanel {
         constraints.gridy = 0;
         this.add(paletteLabel, constraints);
 
-        buttonCreator("Pink", Fabric.PINK, 1);
+        buttonCreator(Fabric.PINK.getName(), Fabric.PINK, 1);
         buttonCreator(Fabric.REDVIOLET.getName(), Fabric.REDVIOLET, 2);
-        buttonCreator("Red", Fabric.RED, 3);
-        buttonCreator("Orange", Fabric.ORANGE, 4);
-        buttonCreator("Yellow", Fabric.YELLOW, 5);
+        buttonCreator(Fabric.RED.getName(), Fabric.RED, 3);
+        buttonCreator(Fabric.ORANGE.getName(), Fabric.ORANGE, 4);
+        buttonCreator(Fabric.YELLOW.getName(), Fabric.YELLOW, 5);
         buttonCreator(Fabric.GREEN.getName(), Fabric.GREEN, 6);
         buttonCreator(Fabric.DARKGREEN.getName(), Fabric.DARKGREEN, 7);
         buttonCreator(Fabric.INDIGO.getName(), Fabric.INDIGO, 8);
-        buttonCreator("Blue", Fabric.BLUE, 9);
-        buttonCreator("Violet", Fabric.VIOLET, 10);
-        buttonCreator("White", Fabric.WHITE, 11);
-        buttonCreator("Black", Fabric.BLACK, 12);
-        buttonCreator("Brown", Fabric.BROWN, 13);
+        buttonCreator(Fabric.BLUE.getName(), Fabric.BLUE, 9);
+        buttonCreator(Fabric.VIOLET.getName(), Fabric.VIOLET, 10);
+        buttonCreator(Fabric.WHITE.getName(), Fabric.WHITE, 11);
+        buttonCreator(Fabric.BLACK.getName(), Fabric.BLACK, 12);
+        buttonCreator(Fabric.BROWN.getName(), Fabric.BROWN, 13);
     }
 
     /**Add a FabricListener to be notified when a new fabric is selected.
