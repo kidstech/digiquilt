@@ -39,10 +39,10 @@ import umm.digiquilt.control.CreateChallengeAction;
 import umm.digiquilt.control.LoadBlockAction;
 import umm.digiquilt.control.MainFrameAnimationController;
 import umm.digiquilt.control.SaveBlockAction;
+import umm.digiquilt.model.Challenge;
 import umm.digiquilt.model.works.BlockWorks;
 import umm.digiquilt.model.works.PatchWorks;
 import umm.digiquilt.savehandler.SaveHandler;
-import umm.digiquilt.view.blockAnimation.UserSlideshow;
 import umm.digiquilt.view.challenge.ChallengePanel;
 import umm.digiquilt.view.fabriccontrols.FabricPalette;
 import umm.digiquilt.view.fabriccontrols.ReplaceAllColorPanel;
@@ -58,8 +58,9 @@ import umm.digiquilt.view.patchworkarea.PatchWorkArea;
  * @version $Revision: 1.2 $
  */
 
-@SuppressWarnings("serial")
-//Serializations of JFrame being supressed
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
+//Serializations of JFrame being suppressed
 public class DigiQuiltFrame extends JFrame {
 
     private SaveHandler handler;
@@ -79,7 +80,7 @@ public class DigiQuiltFrame extends JFrame {
      * GUI element that deals with pixels rather than hardcoding the idea
      * that it is always 100x100.
      */
-    private static final int PATCHSIZE = 100;
+    private static final int PATCH_SIZE = 100;
 
     private WhatsHappeningPanel happeningBar;
 
@@ -106,7 +107,7 @@ public class DigiQuiltFrame extends JFrame {
 
     private TrashPanel trash;
 
-    private final DefaultComboBoxModel challenges = new DefaultComboBoxModel();
+    private final DefaultComboBoxModel<Challenge> challenges = new DefaultComboBoxModel<>();
 
     /**
      * The main DigiQuilt frame, contains all the other stuff.
@@ -152,7 +153,7 @@ public class DigiQuiltFrame extends JFrame {
             handler.synchronize();
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null,
-                    "An error occured trying to connect to the server.",
+                    "An error occurred trying to connect to the server.",
                     "I/O error",
                     JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
@@ -162,7 +163,7 @@ public class DigiQuiltFrame extends JFrame {
     
     
     private void createComponents(){
-        patchWorks = new PatchWorks(handGlassPane, PATCHSIZE);
+        patchWorks = new PatchWorks(handGlassPane, PATCH_SIZE);
         
         
         happeningBar = new WhatsHappeningPanel(
@@ -178,7 +179,7 @@ public class DigiQuiltFrame extends JFrame {
 
         fabricPalette = new FabricPalette(blockWorks);
 
-        shapesPalette = new ShapesPalette(patchWorks, PATCHSIZE);
+        shapesPalette = new ShapesPalette(patchWorks, PATCH_SIZE);
         fabricPalette.addFabricListener(shapesPalette);
         
         basketPanel = new ImageBackground("/umm/digiquilt/view/images/Baskettile.png");
@@ -188,7 +189,7 @@ public class DigiQuiltFrame extends JFrame {
         
         // Create the Block Work Area -- this is a BlockViewer and
         // a GridViewer, stacked on top of each other in a JLayeredPane
-        blockWorkArea = new BlockWorkArea(blockWorks, patchWorks, PATCHSIZE);
+        blockWorkArea = new BlockWorkArea(blockWorks, patchWorks, PATCH_SIZE);
 
         
         // Create a BlockSizePanel which can change the current block to a
@@ -207,7 +208,7 @@ public class DigiQuiltFrame extends JFrame {
         
         
         // Create the Patch Work Area. 
-        patchWorkArea = new PatchWorkArea(patchWorks, blockWorks, PATCHSIZE);
+        patchWorkArea = new PatchWorkArea(patchWorks, blockWorks, PATCH_SIZE);
 
         
         replaceAllColorUI = new ReplaceAllColorPanel(patchWorks, blockWorks);
@@ -215,7 +216,7 @@ public class DigiQuiltFrame extends JFrame {
         // selected
         fabricPalette.addFabricListener(replaceAllColorUI);
         
-        loadPatchPanel = new LoadPatchPanel(patchWorks, PATCHSIZE, handler);
+        loadPatchPanel = new LoadPatchPanel(patchWorks, PATCH_SIZE, handler);
         
         trash = new TrashPanel(patchWorks);
 
@@ -456,28 +457,30 @@ public class DigiQuiltFrame extends JFrame {
     
     private JButton makeSortButton(){
         JButton sort = new JButton("Sort");
-        MainFrameAnimationController controller = 
+        // TODO Refactor code so that controller is added to the button here instead
+        //  MainFrameAnimationController controller = 
             new MainFrameAnimationController(
                     this, blockWorkArea, blockWorks,
-                    lockGlassPane, handGlassPane, sort, PATCHSIZE);
+                    lockGlassPane, handGlassPane, sort, PATCH_SIZE);
         return sort;
     }
     
-    private JButton makeAnimateButton(final SaveHandler handler){
-        JButton animate = new JButton("Create animation");
-        animate.addActionListener(new ActionListener(){
+    // TODO Consider adding the ability to make an animation (UserSlideshow)
+    // private JButton makeAnimateButton(final SaveHandler handler){
+    //     JButton animate = new JButton("Create animation");
+    //     animate.addActionListener(new ActionListener(){
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                UserSlideshow show = new UserSlideshow(handler.getSaveDirectory());
-                show.setVisible(true);
-            }
+    //         @Override
+    //         public void actionPerformed(ActionEvent e) {
+    //             UserSlideshow show = new UserSlideshow(handler.getSaveDirectory());
+    //             show.setVisible(true);
+    //         }
             
-        });
+    //     });
         
-        return animate;
+    //     return animate;
 
-    }
+    // }
     
     private JButton makeChangeUserButton(){
 	JButton changeUser = new JButton("Change User");

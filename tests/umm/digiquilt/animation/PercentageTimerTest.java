@@ -18,9 +18,6 @@ import javax.swing.SwingUtilities;
 
 import org.junit.Test;
 
-import umm.digiquilt.animation.PercentageTimer;
-
-
 /**
  * @author Jason Biatek, last changed by $Author: lamberty $
  * on $Date: 2008/01/22 17:50:24 $

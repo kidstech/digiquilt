@@ -43,9 +43,6 @@ import umm.digiquilt.model.Fabric;
 import umm.digiquilt.model.FreeformChallenge;
 import umm.digiquilt.model.Grid;
 import umm.digiquilt.model.works.UndoRedoStack;
-import umm.digiquilt.savehandler.DQPClient;
-import umm.digiquilt.savehandler.SaveHandler;
-import umm.digiquilt.savehandler.SyncListener;
 import umm.digiquilt.server.QuiltZeroconf;
 import umm.digiquilt.xmlsaveload.ChallengeFileParser;
 import umm.digiquilt.xmlsaveload.ChallengeWriter;
@@ -830,6 +827,7 @@ public class SaveHandlerTest {
     private String readFromFile(File file) throws IOException{
         BufferedReader br = new BufferedReader(new FileReader(file));
         String ret = br.readLine();
+        br.close();
         return ret;
     }
 

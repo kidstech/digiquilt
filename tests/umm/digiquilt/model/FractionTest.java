@@ -4,8 +4,6 @@ import static junit.framework.Assert.*;
 
 import org.junit.Test;
 
-import umm.digiquilt.model.Fraction;
-
 /**
  * @author deragonmr
  *

@@ -13,11 +13,9 @@ import static org.junit.Assert.*;
 import java.awt.GridBagLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 
 import javax.swing.JFrame;
 
@@ -32,8 +30,6 @@ import umm.digiquilt.model.Fabric;
 import umm.digiquilt.model.Fraction;
 import umm.digiquilt.model.Grid;
 import umm.digiquilt.model.Patch;
-import umm.digiquilt.view.blockAnimation.BlockSortListener;
-import umm.digiquilt.view.blockAnimation.BlockSorter;
 
 /**
  * @author Jason Biatek, last changed by $Author: lamberty $

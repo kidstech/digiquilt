@@ -448,6 +448,7 @@ public class SaveHandler {
             byte[] data = connection.get(fileName);
             
             fos.write(data);
+            fos.close();
         }
     }
 
@@ -570,7 +571,7 @@ public class SaveHandler {
         }
         
         connection.put(fileName, byteOut.toByteArray());
-        
+        fis.close();
         
         return true;
     }

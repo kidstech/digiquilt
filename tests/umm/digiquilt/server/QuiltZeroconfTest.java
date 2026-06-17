@@ -34,8 +34,6 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
 import umm.digiquilt.savehandler.DQPClient;
-import umm.digiquilt.server.QuiltZeroconf;
-
 
 /**
  * @author Jason Biatek, last changed by $Author: biatekjt $

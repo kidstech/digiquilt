@@ -19,7 +19,8 @@ import umm.digiquilt.view.glasspane.HandPaneHighlighted;
  *  
  * @author woldta
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 //will not be serialized
 public class FabricWell extends JComponent implements HandPaneHighlighted{
     /**

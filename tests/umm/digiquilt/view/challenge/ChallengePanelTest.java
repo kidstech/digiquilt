@@ -6,27 +6,19 @@ import static org.mockito.Mockito.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.management.modelmbean.RequiredModelMBean;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
-import javax.swing.JList;
 import javax.swing.MutableComboBoxModel;
 
 import org.fest.swing.edt.GuiActionRunner;
 import org.fest.swing.edt.GuiQuery;
-import org.fest.swing.edt.GuiTask;
 import org.fest.swing.fixture.FrameFixture;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import umm.digiquilt.model.Challenge;
-import umm.digiquilt.savehandler.SaveHandler;
-import umm.digiquilt.view.challenge.ChallengePanel;
 
 /**
  * @author Jason Biatek, last changed by $Author: lamberty $
@@ -49,7 +41,7 @@ public class ChallengePanelTest {
     /**
      * The model behind the drop down box.
      */
-    private MutableComboBoxModel list = new DefaultComboBoxModel();
+    private MutableComboBoxModel<Challenge> list = new DefaultComboBoxModel<>();
     
     /**
      * Test listener

@@ -14,14 +14,10 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 import javax.swing.AbstractButton;
-import javax.swing.JButton;
-import javax.swing.JLayeredPane;
 
 import umm.digiquilt.model.works.BlockWorks;
-import umm.digiquilt.view.BlockViewer;
 import umm.digiquilt.view.BlockWorkArea;
 import umm.digiquilt.view.DigiQuiltFrame;
-import umm.digiquilt.view.GridViewPanel;
 import umm.digiquilt.view.blockAnimation.BlockSorter;
 import umm.digiquilt.view.glasspane.HandGlassPane;
 import umm.digiquilt.view.glasspane.LockingGlassPane;

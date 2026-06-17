@@ -9,6 +9,8 @@ import javax.swing.ComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
+import umm.digiquilt.model.Challenge;
+
 /**
  * A panel to display various challenges to try.
  * 
@@ -17,7 +19,8 @@ import javax.swing.JPanel;
  * @version $Revision: 1.3 $
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class ChallengePanel extends JPanel{
     
     /**
@@ -33,18 +36,18 @@ public class ChallengePanel extends JPanel{
     /**
      * The challenge box.
      */
-    private JComboBox comboBox;
+    private JComboBox<Challenge> challengeList;
     
     /**Create a ChallengePanel to display the given challenges.
      * @param list a list of all challenges to show.
      */
-    public ChallengePanel(ComboBoxModel list){
-        comboBox = new JComboBox(list);
-        comboBox.setName("Challenge box");
-        comboBox.setEditable(false);
-        comboBox.setFont(comboBox.getFont().deriveFont(Font.BOLD, 17));
-        comboBox.setMinimumSize(TEXTDISPLAYSIZE);
-        comboBox.setPreferredSize(TEXTDISPLAYSIZE);
+    public ChallengePanel(ComboBoxModel<Challenge> list){
+        challengeList = new JComboBox<>(list);
+        challengeList.setName("Challenge box");
+        challengeList.setEditable(false);
+        challengeList.setFont(challengeList.getFont().deriveFont(Font.BOLD, 17));
+        challengeList.setMinimumSize(TEXTDISPLAYSIZE);
+        challengeList.setPreferredSize(TEXTDISPLAYSIZE);
         
 //        JButton nextButton = new JButton("Next");
 //        nextButton.setName("Next");
@@ -71,7 +74,7 @@ public class ChallengePanel extends JPanel{
 //        });
         this.setBackground(CHALLENGE_COLOR);
 //        this.add(prevButton);
-        this.add(comboBox);
+        this.add(challengeList);
 //        this.add(nextButton);
         validate();
     }
@@ -80,7 +83,7 @@ public class ChallengePanel extends JPanel{
      * @param listener
      */
     public void addActionListener(ActionListener listener) {
-        comboBox.addActionListener(listener);
+        challengeList.addActionListener(listener);
     }
 
     

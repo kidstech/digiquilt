@@ -36,7 +36,8 @@ import umm.digiquilt.server.QuiltZeroconf;
  * @version $Revision: 1.4 $
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class QuiltLogin extends JDialog implements ServiceListener {
 
     /**
@@ -58,12 +59,12 @@ public class QuiltLogin extends JDialog implements ServiceListener {
     /**
      * The combo box containing the list of classes
      */
-    private SortedComboBoxModel classBoxModel = new SortedComboBoxModel();
+    private SortedComboBoxModel<String> classBoxModel = new SortedComboBoxModel<>();
 
     /**
      * Combo box for names
      */
-    private JComboBox nameComboBox;
+    private JComboBox<String> nameComboBox;
 
     /**
      * Log in button
@@ -103,7 +104,7 @@ public class QuiltLogin extends JDialog implements ServiceListener {
         c.gridheight = 1;
         this.add(message, c);
 
-        JComboBox classComboBox = new JComboBox(classBoxModel);
+        JComboBox<String> classComboBox = new JComboBox<String>(classBoxModel);
         classComboBox.setName("classes");
         c.gridx = 0;
         c.gridy = 1;
@@ -111,7 +112,7 @@ public class QuiltLogin extends JDialog implements ServiceListener {
         c.gridheight = 1;
         this.add(classComboBox, c);
 
-        nameComboBox = new JComboBox();
+        nameComboBox = new JComboBox<>();
         nameComboBox.setName("names");
         c.gridx = 0;
         c.gridy = 2;

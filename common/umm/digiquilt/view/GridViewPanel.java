@@ -17,7 +17,8 @@ import umm.digiquilt.model.Grid;
  * @author deragonmr
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class GridViewPanel extends JPanel implements GridDisplayer {
     /**
      * The grid currently being shown.

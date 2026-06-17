@@ -8,18 +8,14 @@
 package umm.digiquilt.control;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.AbstractAction;
 import javax.swing.ComboBoxModel;
 import javax.swing.JOptionPane;
 
 import umm.digiquilt.model.Challenge;
-import umm.digiquilt.model.Grid;
 import umm.digiquilt.model.works.BlockWorks;
 import umm.digiquilt.savehandler.SaveHandler;
-import umm.digiquilt.view.GridViewPanel;
-import umm.digiquilt.view.challenge.ChallengePanel;
 import umm.digiquilt.view.filebrowser.BlockSaveBrowser;
 
 /**
@@ -32,11 +28,11 @@ import umm.digiquilt.view.filebrowser.BlockSaveBrowser;
 public class SaveBlockAction extends AbstractAction {
 
     private BlockWorks blockWorks;
-    private ComboBoxModel challengePanel;
+    private ComboBoxModel<Challenge> challengePanel;
     private SaveHandler handler;
     
     public SaveBlockAction(BlockWorks blockWorks, 
-            ComboBoxModel challengePanel, SaveHandler handler){
+            ComboBoxModel<Challenge> challengePanel, SaveHandler handler){
         super("Save...");
         this.blockWorks = blockWorks;
         this.challengePanel = challengePanel;

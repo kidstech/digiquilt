@@ -15,8 +15,6 @@ import javax.swing.ComboBoxModel;
 import umm.digiquilt.model.Challenge;
 import umm.digiquilt.model.works.BlockWorks;
 import umm.digiquilt.savehandler.SaveHandler;
-import umm.digiquilt.view.GridViewPanel;
-import umm.digiquilt.view.challenge.ChallengePanel;
 import umm.digiquilt.xmlsaveload.SaveBlockXML;
 
 /**
@@ -29,10 +27,10 @@ import umm.digiquilt.xmlsaveload.SaveBlockXML;
 public class ClearAction implements ActionListener {
     
     private BlockWorks blockWorks;
-    private ComboBoxModel challengePanel;
+    private ComboBoxModel<Challenge> challengePanel;
     private SaveHandler handler;
     
-    public ClearAction(BlockWorks blockWorks, ComboBoxModel challengePanel, 
+    public ClearAction(BlockWorks blockWorks, ComboBoxModel<Challenge> challengePanel, 
             SaveHandler handler){
         this.blockWorks = blockWorks;
         this.challengePanel = challengePanel;

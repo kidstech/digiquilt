@@ -19,7 +19,8 @@ import umm.digiquilt.view.GridDisplayer;
  * @author deragonmr
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class GridButton extends JButton implements GridDisplayer{
 
     /**

@@ -20,7 +20,8 @@ import umm.digiquilt.model.Fraction;
  * @author deragonmr
  *
  */
-@SuppressWarnings({"serial"})
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class FractionViewer extends JButton implements PropertyChangeListener {
 
     /**

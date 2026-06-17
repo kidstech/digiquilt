@@ -7,11 +7,9 @@
 
 package umm.digiquilt.server;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -24,10 +22,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.xml.sax.SAXException;
 
 import umm.digiquilt.io.ReadLineInputStream;
 import umm.digiquilt.model.Challenge;
@@ -172,6 +166,7 @@ public class DQPHandler implements ConnectionHandler {
                 while ((bytesRead = fis.read(buffer)) != -1){
                     out.write(buffer, 0, bytesRead);
                 }
+                fis.close();
             } else {
                 out.println("FILE NOT FOUND: "+fileName);
             }
@@ -325,6 +320,7 @@ public class DQPHandler implements ConnectionHandler {
                 while ((bytesRead = in.read(buffer)) != -1){
                     fos.write(buffer, 0, bytesRead);
                 }
+                fos.close();
             }
             out.close();
         } catch (IOException e){

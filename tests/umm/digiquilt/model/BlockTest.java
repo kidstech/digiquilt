@@ -16,12 +16,6 @@ import java.util.Random;
 import org.junit.Before;
 import org.junit.Test;
 
-import umm.digiquilt.model.Block;
-import umm.digiquilt.model.Fabric;
-import umm.digiquilt.model.Fraction;
-import umm.digiquilt.model.Patch;
-import umm.digiquilt.model.Shape;
-
 /**
  * @author Main.BrianOhs and Main.AndyMitchell, last changed by $Author:
  *         mitchella $ on $Date: 2009-07-01 23:35:06 $

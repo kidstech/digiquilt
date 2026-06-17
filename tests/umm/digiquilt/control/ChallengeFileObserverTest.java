@@ -58,7 +58,7 @@ public class ChallengeFileObserverTest {
      */
     @Test
     public void testChallengeRefresh() throws Exception {
-        MutableComboBoxModel challengeList = new DefaultComboBoxModel();
+        MutableComboBoxModel<Challenge> challengeList = new DefaultComboBoxModel<>();
         
         Challenge test1 = new FreeformChallenge("challenge 1");
         Challenge test2 = new FreeformChallenge("challenge 2");
@@ -93,7 +93,7 @@ public class ChallengeFileObserverTest {
      */
     @Test
     public void testExceptions() throws IOException{
-        MutableComboBoxModel challengeList = new DefaultComboBoxModel();
+        MutableComboBoxModel<Challenge> challengeList = new DefaultComboBoxModel<>();
         
         ChallengeFileObserver testObserver = 
             new ChallengeFileObserver(challengeList);
@@ -109,6 +109,7 @@ public class ChallengeFileObserverTest {
         out.println("Nope. This should choke and die.");
         testObserver.onSynchronize(makeMockHandler());
         assertEquals(0, challengeList.getSize());
+        out.close();
 
     }
     

@@ -24,14 +24,13 @@ import java.util.List;
 import javax.swing.ComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.MutableComboBoxModel;
 
 import umm.digiquilt.control.LoadBlockAction;
 import umm.digiquilt.model.Block;
+import umm.digiquilt.model.Challenge;
 import umm.digiquilt.model.works.BlockWorks;
 import umm.digiquilt.savehandler.SaveHandler;
 import umm.digiquilt.savehandler.SyncListener;
-import umm.digiquilt.view.BlockViewer;
 import umm.digiquilt.view.filebrowser.MissingIcon;
 import umm.digiquilt.xmlsaveload.LoadXML;
 
@@ -42,7 +41,8 @@ import umm.digiquilt.xmlsaveload.LoadXML;
  *
  */
 
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class WhatsHappeningPanel extends JPanel implements SyncListener {
 
 
@@ -69,7 +69,7 @@ public class WhatsHappeningPanel extends JPanel implements SyncListener {
     
     private SaveHandler handler;
     
-    private ComboBoxModel challenges;
+    private ComboBoxModel<Challenge> challenges;
 
     /**
      * Create a new What's Happening Panel. 
@@ -81,7 +81,7 @@ public class WhatsHappeningPanel extends JPanel implements SyncListener {
      * @param numToShow The number of recent quilts to show
      */
     public WhatsHappeningPanel(BlockWorks blockWorks,  
-            SaveHandler saveHandler, ComboBoxModel challenges, 
+            SaveHandler saveHandler, ComboBoxModel<Challenge> challenges, 
             int numToShow){
         this.blockWorks = blockWorks;
         this.handler = saveHandler;

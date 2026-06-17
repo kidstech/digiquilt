@@ -13,9 +13,6 @@ import static junit.framework.Assert.assertTrue;
 
 import org.junit.Test;
 
-import umm.digiquilt.model.Fabric;
-import umm.digiquilt.model.Patch;
-
 /**
  * @author Main.BrianOhs and Main.AndyMitchell, last changed by $Author:
  *         mitchella $ on $Date: 2009-06-21 23:41:03 $

@@ -29,7 +29,8 @@ import umm.digiquilt.savehandler.SaveHandler;
  * @version $Revision: 1.5 $
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class ChangeUser extends JDialog{
 
 
@@ -38,7 +39,7 @@ public class ChangeUser extends JDialog{
     /**
      * Combo box for names
      */
-    private JComboBox nameComboBox;
+    private JComboBox<String> nameComboBox;
 
     /**
      * Log in button
@@ -77,7 +78,7 @@ public class ChangeUser extends JDialog{
 	c.gridheight = 1;
 	this.add(message, c);
 
-	nameComboBox = new JComboBox();
+	nameComboBox = new JComboBox<>();
 	nameComboBox.setName("names");
 	c.gridx = 0;
 	c.gridy = 2;

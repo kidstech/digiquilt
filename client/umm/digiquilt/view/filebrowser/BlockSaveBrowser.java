@@ -35,7 +35,8 @@ import umm.digiquilt.xmlsaveload.SaveBlockXML;
  * changing a few things around.
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class BlockSaveBrowser extends JDialog{
 
     /**
@@ -111,7 +112,7 @@ public class BlockSaveBrowser extends JDialog{
     /**
      * The drop down menu of prompts
      */
-    private JComboBox promptList;
+    private JComboBox<String> promptList;
 
     /**
      * Constructor for a SaveBrowser
@@ -184,7 +185,7 @@ public class BlockSaveBrowser extends JDialog{
         
         constraints.gridx=0;
         constraints.gridy=3;
-        promptList = new JComboBox(PROMPTS);
+        promptList = new JComboBox<String>(PROMPTS);
         promptList.setName("Prompts");
         this.add(promptList,constraints);
         

@@ -21,7 +21,8 @@ import umm.digiquilt.view.Tile;
  * @version $Revision: 1.2 $
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class BlockSorter extends AnimationPanel implements PropertyChangeListener{
 
 

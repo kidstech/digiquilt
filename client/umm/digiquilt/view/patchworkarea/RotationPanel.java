@@ -28,7 +28,8 @@ import umm.digiquilt.animation.Sprite;
  *
  */
 
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class RotationPanel extends AnimationPanel implements PropertyChangeListener {
     /**
      * The number of steps to take when rotating.

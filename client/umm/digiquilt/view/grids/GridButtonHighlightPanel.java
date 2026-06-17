@@ -14,7 +14,8 @@ import javax.swing.JPanel;
  * @author deragonmr
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class GridButtonHighlightPanel extends JPanel{
 
     /**

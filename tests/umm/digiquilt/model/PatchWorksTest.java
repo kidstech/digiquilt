@@ -11,7 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
-import umm.digiquilt.model.Patch;
 import umm.digiquilt.model.works.PatchWorks;
 import umm.digiquilt.view.glasspane.HandGlassPane;
 

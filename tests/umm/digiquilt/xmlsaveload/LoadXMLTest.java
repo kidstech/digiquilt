@@ -15,13 +15,11 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import umm.digiquilt.model.Block;
-import umm.digiquilt.model.Challenge;
 import umm.digiquilt.model.Fabric;
 import umm.digiquilt.model.FractionChallenge;
 import umm.digiquilt.model.Grid;
 import umm.digiquilt.model.Patch;
 import umm.digiquilt.model.works.UndoRedoStack;
-import umm.digiquilt.xmlsaveload.LoadXML;
 
 /**
  * Test the LoadXML class.

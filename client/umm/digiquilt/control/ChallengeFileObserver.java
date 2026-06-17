@@ -31,12 +31,12 @@ public class ChallengeFileObserver implements SyncListener {
     /**
      * The ComboBoxModel of all the challenges.
      */
-    MutableComboBoxModel challenges;
+    MutableComboBoxModel<Challenge> challenges;
 
     /**
      * @param challengeList
      */
-    public ChallengeFileObserver(MutableComboBoxModel challengeList) {
+    public ChallengeFileObserver(MutableComboBoxModel<Challenge> challengeList) {
         this.challenges = challengeList;
     }
 

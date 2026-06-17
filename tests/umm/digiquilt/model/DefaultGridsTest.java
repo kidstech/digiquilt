@@ -11,8 +11,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import umm.digiquilt.model.DefaultGrids;
-import umm.digiquilt.model.Grid;
 import umm.digiquilt.model.DefaultGrids.GridDivision;
 
 

@@ -27,9 +27,6 @@ import umm.digiquilt.model.Fabric;
 import umm.digiquilt.model.Fraction;
 import umm.digiquilt.model.Shape;
 import umm.digiquilt.model.works.BlockWorks;
-import umm.digiquilt.view.fabriccontrols.FabricListener;
-import umm.digiquilt.view.fabriccontrols.FabricPalette;
-import umm.digiquilt.view.fabriccontrols.FractionViewer;
 
 /**
  * @author Main.BrianOhs and Main.AndyMitchell, last changed by $Author:

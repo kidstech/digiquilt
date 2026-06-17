@@ -12,27 +12,27 @@ import java.util.Comparator;
 
 import javax.swing.ComboBoxModel;
 import javax.swing.JFrame;
-import javax.swing.MutableComboBoxModel;
 import javax.swing.SwingUtilities;
 
 import org.fest.swing.edt.GuiActionRunner;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.fixture.FrameFixture;
 import org.fest.swing.fixture.JPanelFixture;
-import org.fest.swing.timing.Timeout;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import umm.digiquilt.model.Block;
 import umm.digiquilt.model.BlockTest;
+import umm.digiquilt.model.Challenge;
 import umm.digiquilt.model.FreeformChallenge;
 import umm.digiquilt.model.Grid;
 import umm.digiquilt.model.works.BlockWorks;
 import umm.digiquilt.model.works.UndoRedoStack;
 import umm.digiquilt.savehandler.SaveHandler;
-import umm.digiquilt.view.BlockViewer;
-import umm.digiquilt.view.WhatsHappeningPanel;
 import umm.digiquilt.xmlsaveload.SaveBlockXML;
 
 /**
@@ -41,6 +41,7 @@ import umm.digiquilt.xmlsaveload.SaveBlockXML;
  * @version $Revision: 1.1 $
  *
  */
+@RunWith(MockitoJUnitRunner.class)
 public class WhatsHappeningPanelTest {
 
 
@@ -78,7 +79,9 @@ public class WhatsHappeningPanelTest {
     
     private final BlockWorks mockBW = mock(BlockWorks.class);
     private final SaveHandler mockHandler = mock(SaveHandler.class);
-    private final ComboBoxModel mockModel = mock(ComboBoxModel.class);
+
+    @Mock
+    private ComboBoxModel<Challenge> mockModel;
     
     /**
      * Set up the frame fixtures, etc.

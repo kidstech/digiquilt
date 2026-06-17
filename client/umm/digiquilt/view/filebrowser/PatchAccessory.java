@@ -9,7 +9,6 @@ import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -33,7 +32,8 @@ import umm.digiquilt.xmlsaveload.LoadXML;
  * @version $Revision: 1.2 $
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class PatchAccessory extends JPanel implements PropertyChangeListener {
 
     /**

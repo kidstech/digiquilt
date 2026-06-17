@@ -8,7 +8,6 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -19,7 +18,6 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import umm.digiquilt.model.Challenge;
@@ -27,7 +25,6 @@ import umm.digiquilt.model.Fabric;
 import umm.digiquilt.model.Fraction;
 import umm.digiquilt.model.FractionChallenge;
 import umm.digiquilt.model.FreeformChallenge;
-import umm.digiquilt.savehandler.DQPClient;
 import umm.digiquilt.testing.MockInputStream;
 import umm.digiquilt.xmlsaveload.ChallengeFileParser;
 import umm.digiquilt.xmlsaveload.SaveBlockXML;

@@ -32,7 +32,8 @@ import javax.swing.event.ListSelectionListener;
  * @version $Revision: 1.1 $
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class NameFileEditor extends JDialog{
 
     /**
@@ -43,12 +44,12 @@ public class NameFileEditor extends JDialog{
     /**
      * The area where the user can edit the file.
      */
-    JList textListView;
+    JList<String> textListView;
 
     /**
      * Model for the list of lines.
      */
-    DefaultListModel textList = new DefaultListModel();
+    DefaultListModel<String> textList = new DefaultListModel<>();
 
     /**
      * The "Add" button to add a line
@@ -100,7 +101,9 @@ public class NameFileEditor extends JDialog{
             textList.addElement(line);
         }
 
-        textListView = new JList(textList);
+        reader.close();
+
+        textListView = new JList<>(textList);
         textListView.addListSelectionListener(new SelectionButtonChanger());
         textListView.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         c.gridx = 0;
@@ -320,9 +323,9 @@ public class NameFileEditor extends JDialog{
         public void actionPerformed(ActionEvent e) {
             int originalIndex = textListView.getSelectedIndex();
             if (originalIndex > 0){
-                Object item = textList.get(originalIndex);
+                String name = textList.get(originalIndex);
                 textList.remove(originalIndex);
-                textList.add(originalIndex-1, item);
+                textList.add(originalIndex-1, name);
                 textListView.setSelectedIndex(originalIndex-1);
             }
         }
@@ -345,9 +348,9 @@ public class NameFileEditor extends JDialog{
         public void actionPerformed(ActionEvent e) {
             int originalIndex = textListView.getSelectedIndex();
             if (originalIndex < textList.size()-1){
-                Object item = textList.get(originalIndex);
+                String name = textList.get(originalIndex);
                 textList.remove(originalIndex);
-                textList.add(originalIndex+1, item);
+                textList.add(originalIndex+1, name);
                 textListView.setSelectedIndex(originalIndex+1);
             }
         }
@@ -368,10 +371,10 @@ public class NameFileEditor extends JDialog{
          * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
          */
         public void actionPerformed(ActionEvent e) {
-            Object[] lines = textList.toArray();
+            String[] lines = (String[]) textList.toArray();
             Arrays.sort(lines);
             textList.removeAllElements();
-            for (Object line : lines){
+            for (String line : lines){
                 textList.addElement(line);
             }
         }

@@ -14,7 +14,8 @@ import umm.digiquilt.model.Block;
  * @author deragonmr
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class BlockViewer extends JPanel{
 
     /**

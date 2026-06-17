@@ -22,7 +22,8 @@ import umm.digiquilt.view.PatchViewer;
  * Panel that holds a PatchWorkViewer, as well as buttons for rotating and
  * clearing.
  */
-@SuppressWarnings("serial") //will not be serialized
+//@SuppressWarnings("serial")
+// Remove suppression to see impact //will not be serialized
 public class PatchWorkPanel extends JPanel{
 
     /**

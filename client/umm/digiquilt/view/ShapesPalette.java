@@ -23,7 +23,6 @@ import umm.digiquilt.model.Fabric;
 import umm.digiquilt.model.Patch;
 import umm.digiquilt.model.Shape;
 import umm.digiquilt.model.works.PatchWorks;
-import umm.digiquilt.view.PatchViewer;
 import umm.digiquilt.view.fabriccontrols.FabricListener;
 
 /**
@@ -34,7 +33,8 @@ import umm.digiquilt.view.fabriccontrols.FabricListener;
  *         fortunan $ on $Date: 2009-05-28 19:19:52 $
  * @version $Revision: 1.1 $
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 // supressing the Serialized warning from JPanel
 public class ShapesPalette extends JPanel implements FabricListener{
     

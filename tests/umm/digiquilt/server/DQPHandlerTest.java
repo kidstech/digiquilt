@@ -23,7 +23,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +39,6 @@ import umm.digiquilt.model.Fraction;
 import umm.digiquilt.model.FractionChallenge;
 import umm.digiquilt.model.FreeformChallenge;
 import umm.digiquilt.savehandler.SaveHandler;
-import umm.digiquilt.server.DQPHandler;
 import umm.digiquilt.testing.MockInputStream;
 import umm.digiquilt.xmlsaveload.ChallengeFileParser;
 import umm.digiquilt.xmlsaveload.ChallengeWriter;
@@ -282,6 +280,7 @@ public class DQPHandlerTest {
         rng.nextBytes(contents);
         FileOutputStream fos = new FileOutputStream(testFile);
         fos.write(contents);
+        fos.close();
 
         handlerIn.returnLine("GET "+testFile.getName());
         
@@ -342,6 +341,7 @@ public class DQPHandlerTest {
                 counter++;
             }
         }
+        fin.close();
         assertEquals("Premature end of file", size, counter);
     }
 
@@ -403,6 +403,7 @@ public class DQPHandlerTest {
                         contents, readContents);
 
                 foundFile = true;
+                br.close();
             }
         }
         assertTrue("Autosaved file was not created on PUT", foundFile);
@@ -442,6 +443,7 @@ public class DQPHandlerTest {
                         contents, readContents);
 
                 foundFile = true;
+                br.close();
             }
         }
         assertTrue("Autosaved file was not created", foundFile);
@@ -547,6 +549,7 @@ public class DQPHandlerTest {
         assertEquals("The name file didn't match", 
                 "Appended name 2", nameFileIn.readLine());
         assertNull("File didn't end when expected", nameFileIn.readLine());
+        nameFileIn.close();
     }
     
     /**

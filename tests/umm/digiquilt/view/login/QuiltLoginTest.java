@@ -20,8 +20,6 @@ import org.junit.Test;
 import umm.digiquilt.savehandler.DQPClient;
 import umm.digiquilt.savehandler.SaveHandler;
 import umm.digiquilt.server.QuiltZeroconf;
-import umm.digiquilt.view.login.QuiltLogin;
-
 
 /**
  * @author Jason Biatek, last changed by $Author: biatekjt $

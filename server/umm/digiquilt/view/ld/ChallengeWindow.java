@@ -41,7 +41,8 @@ import umm.digiquilt.xmlsaveload.ChallengeFileParser;
  * @version $Revision: 1.4 $
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class ChallengeWindow extends JFrame {
 
     /**
@@ -59,7 +60,7 @@ public class ChallengeWindow extends JFrame {
      */
     JPanel quiltPanel = new JPanel();
     
-    MutableComboBoxModel challenges = new DefaultComboBoxModel();
+    MutableComboBoxModel<Challenge> challenges = new DefaultComboBoxModel<>();
     
     /**
      * The challenge panel.

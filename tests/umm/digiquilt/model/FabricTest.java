@@ -4,8 +4,6 @@ import java.awt.Color;
 
 import org.junit.Test;
 
-import umm.digiquilt.model.Fabric;
-
 import static junit.framework.Assert.*;
 
 /**
