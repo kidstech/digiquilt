@@ -456,28 +456,30 @@ public class DigiQuiltFrame extends JFrame {
     
     private JButton makeSortButton(){
         JButton sort = new JButton("Sort");
-        MainFrameAnimationController controller = 
+        // TODO Refactor code so that controller is added to the button here instead
+        //  MainFrameAnimationController controller = 
             new MainFrameAnimationController(
                     this, blockWorkArea, blockWorks,
-                    lockGlassPane, handGlassPane, sort, PATCHSIZE);
+                    lockGlassPane, handGlassPane, sort, PATCH_SIZE);
         return sort;
     }
     
-    private JButton makeAnimateButton(final SaveHandler handler){
-        JButton animate = new JButton("Create animation");
-        animate.addActionListener(new ActionListener(){
+    // TODO Consider adding the ability to make an animation (UserSlideshow)
+    // private JButton makeAnimateButton(final SaveHandler handler){
+    //     JButton animate = new JButton("Create animation");
+    //     animate.addActionListener(new ActionListener(){
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                UserSlideshow show = new UserSlideshow(handler.getSaveDirectory());
-                show.setVisible(true);
-            }
+    //         @Override
+    //         public void actionPerformed(ActionEvent e) {
+    //             UserSlideshow show = new UserSlideshow(handler.getSaveDirectory());
+    //             show.setVisible(true);
+    //         }
             
-        });
+    //     });
         
-        return animate;
+    //     return animate;
 
-    }
+    // }
     
     private JButton makeChangeUserButton(){
 	JButton changeUser = new JButton("Change User");
