@@ -21,7 +21,8 @@ import umm.digiquilt.view.glasspane.HandPaneHighlighted;
  * @version $Revision: 1.2 $
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class PatchViewer extends JPanel implements HandPaneHighlighted{
 
     /**

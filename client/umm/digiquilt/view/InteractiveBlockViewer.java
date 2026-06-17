@@ -19,7 +19,8 @@ import umm.digiquilt.model.works.PatchWorks;
  * @version $Revision: 1.1 $
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class InteractiveBlockViewer extends BlockViewer
 implements PropertyChangeListener {
 

@@ -32,7 +32,8 @@ import umm.digiquilt.view.TwoColorArrow;
  *         fortunan $ on $Date: 2009-07-01 23:35:06 $
  * @version $Revision: 1.2 $
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 //supressing the Serialized warning from JPanel
 public class PatchWorkArea extends JLayeredPane {
 

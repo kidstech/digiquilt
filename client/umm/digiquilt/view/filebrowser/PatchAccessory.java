@@ -32,7 +32,8 @@ import umm.digiquilt.xmlsaveload.LoadXML;
  * @version $Revision: 1.2 $
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class PatchAccessory extends JPanel implements PropertyChangeListener {
 
     /**

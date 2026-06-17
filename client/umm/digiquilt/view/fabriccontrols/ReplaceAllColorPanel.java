@@ -24,7 +24,8 @@ import umm.digiquilt.view.TwoColorArrow;
  * and buttons to swap colors in the Block.
  *
  */
-@SuppressWarnings("serial") //this panel will not be serialized
+//@SuppressWarnings("serial")
+// Remove suppression to see impact //this panel will not be serialized
 public class ReplaceAllColorPanel extends JPanel 
                 implements FabricListener, PropertyChangeListener{
     /**

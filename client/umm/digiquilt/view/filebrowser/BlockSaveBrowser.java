@@ -35,7 +35,8 @@ import umm.digiquilt.xmlsaveload.SaveBlockXML;
  * changing a few things around.
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class BlockSaveBrowser extends JDialog{
 
     /**

@@ -22,7 +22,8 @@ import javax.swing.UIManager;
  *
  */
 
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class QuiltFileChooser extends JFileChooser {
     
     /**

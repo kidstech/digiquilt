@@ -19,7 +19,8 @@ import umm.digiquilt.model.Challenge;
  * @version $Revision: 1.3 $
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class ChallengePanel extends JPanel{
     
     /**

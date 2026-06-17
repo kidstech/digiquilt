@@ -18,7 +18,8 @@ import umm.digiquilt.view.grids.GridButton;
  * @version $Revision: 1.1 $
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class BlockSizePanel extends JPanel {
     
     /**

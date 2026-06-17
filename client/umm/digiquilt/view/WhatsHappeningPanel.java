@@ -41,7 +41,8 @@ import umm.digiquilt.xmlsaveload.LoadXML;
  *
  */
 
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class WhatsHappeningPanel extends JPanel implements SyncListener {
 
 

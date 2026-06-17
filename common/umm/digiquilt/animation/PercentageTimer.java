@@ -17,7 +17,8 @@ import javax.swing.Timer;
  * @version $Revision: 1.1 $
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class PercentageTimer extends Timer {
     
     /**

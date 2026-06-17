@@ -36,7 +36,8 @@ import umm.digiquilt.server.QuiltZeroconf;
  * @version $Revision: 1.4 $
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class QuiltLogin extends JDialog implements ServiceListener {
 
     /**

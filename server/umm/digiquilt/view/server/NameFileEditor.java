@@ -32,7 +32,8 @@ import javax.swing.event.ListSelectionListener;
  * @version $Revision: 1.1 $
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class NameFileEditor extends JDialog{
 
     /**

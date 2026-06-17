@@ -24,7 +24,8 @@ import javax.swing.SwingUtilities;
  * @author deragonmr
  * 
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class HandGlassPane extends JPanel implements AWTEventListener {
 
     /**

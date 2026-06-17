@@ -17,7 +17,8 @@ import umm.digiquilt.savehandler.SaveHandler;
 /**
  * Panel For loading patches into the Digiquilt Client
  */
-@SuppressWarnings("serial") //will not be serialized
+//@SuppressWarnings("serial")
+// Remove suppression to see impact //will not be serialized
 public class LoadPatchPanel extends JPanel{
 
     /**

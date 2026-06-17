@@ -26,7 +26,8 @@ import umm.digiquilt.xmlsaveload.SavePatchXML;
  * changing a few things around.
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class PatchSaveBrowser extends JDialog{
 
     /**

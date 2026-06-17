@@ -10,7 +10,8 @@ import java.util.ArrayList;
  * @author deragonmr
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class Grid extends ArrayList<Line2D.Double>{
 
 

@@ -7,7 +7,8 @@ import javax.swing.*;
  * The panel on the bottom of the save and load boxes.
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class NotePanel extends JPanel{
 	
 	/**

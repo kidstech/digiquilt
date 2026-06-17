@@ -58,7 +58,8 @@ import umm.digiquilt.view.patchworkarea.PatchWorkArea;
  * @version $Revision: 1.2 $
  */
 
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 //Serializations of JFrame being suppressed
 public class DigiQuiltFrame extends JFrame {
 

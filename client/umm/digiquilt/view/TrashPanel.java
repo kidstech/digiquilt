@@ -13,7 +13,8 @@ import umm.digiquilt.view.glasspane.HandPaneHighlighted;
  * when clicked.
  *
  */
-@SuppressWarnings("serial") //trash panel will not be serialized
+//@SuppressWarnings("serial")
+// Remove suppression to see impact //trash panel will not be serialized
 public class TrashPanel extends JLabel implements HandPaneHighlighted{
     
     /**

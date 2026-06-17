@@ -30,7 +30,8 @@ import umm.digiquilt.model.works.BlockWorks;
  *         deragonmr $ on $Date: 2009-07-04 01:49:19 $
  * @version $Revision: 1.3 $
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 //supressing the Serialized warning from JPanel
 public final class FabricPalette extends JPanel {
 

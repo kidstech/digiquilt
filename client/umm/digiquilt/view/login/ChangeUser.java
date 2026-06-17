@@ -29,7 +29,8 @@ import umm.digiquilt.savehandler.SaveHandler;
  * @version $Revision: 1.5 $
  *
  */
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
+// Remove suppression to see impact
 public class ChangeUser extends JDialog{
 
 
