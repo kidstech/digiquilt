@@ -19,7 +19,6 @@ import javax.swing.JTextField;
 import javax.xml.parsers.ParserConfigurationException;
 
 import umm.digiquilt.savehandler.SaveHandler;
-import umm.digiquilt.view.BlockViewer;
 import umm.digiquilt.view.PatchViewer;
 import umm.digiquilt.xmlsaveload.SavePatchXML;
 /**

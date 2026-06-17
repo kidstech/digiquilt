@@ -15,8 +15,6 @@ import javax.swing.ComboBoxModel;
 import umm.digiquilt.model.Challenge;
 import umm.digiquilt.model.works.BlockWorks;
 import umm.digiquilt.savehandler.SaveHandler;
-import umm.digiquilt.view.GridViewPanel;
-import umm.digiquilt.view.challenge.ChallengePanel;
 import umm.digiquilt.xmlsaveload.SaveBlockXML;
 
 /**

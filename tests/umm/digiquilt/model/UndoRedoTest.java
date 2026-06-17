@@ -15,8 +15,6 @@ import javax.swing.JButton;
 
 import org.junit.Test;
 
-import umm.digiquilt.model.Block;
-import umm.digiquilt.model.Fabric;
 import umm.digiquilt.model.works.UndoRedoStack;
 
 /**

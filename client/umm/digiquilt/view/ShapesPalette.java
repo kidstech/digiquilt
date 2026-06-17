@@ -23,7 +23,6 @@ import umm.digiquilt.model.Fabric;
 import umm.digiquilt.model.Patch;
 import umm.digiquilt.model.Shape;
 import umm.digiquilt.model.works.PatchWorks;
-import umm.digiquilt.view.PatchViewer;
 import umm.digiquilt.view.fabriccontrols.FabricListener;
 
 /**

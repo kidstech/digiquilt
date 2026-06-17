@@ -17,13 +17,6 @@ import javax.swing.filechooser.FileSystemView;
 
 import org.junit.Test;
 
-import umm.digiquilt.view.filebrowser.QuiltAccessory;
-import umm.digiquilt.view.filebrowser.QuiltFSView;
-import umm.digiquilt.view.filebrowser.QuiltFileChooser;
-import umm.digiquilt.view.filebrowser.QuiltFileFilter;
-import umm.digiquilt.view.filebrowser.QuiltFileView;
-
-
 /**
  * @author Jason Biatek, last changed by $Author: biatekjt $
  * on $Date: 2009-07-08 19:20:28 $

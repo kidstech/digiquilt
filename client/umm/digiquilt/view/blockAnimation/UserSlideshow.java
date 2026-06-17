@@ -20,15 +20,11 @@ import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
 
 import org.xml.sax.SAXException;
 
 import umm.digiquilt.model.Block;
-import umm.digiquilt.model.Grid;
 import umm.digiquilt.view.BlockViewer;
-import umm.digiquilt.view.blockAnimation.QuiltSlideShow;
 import umm.digiquilt.view.filebrowser.QuiltFileChooser;
 import umm.digiquilt.xmlsaveload.LoadXML;
 

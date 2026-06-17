@@ -12,14 +12,12 @@ import java.util.Comparator;
 
 import javax.swing.ComboBoxModel;
 import javax.swing.JFrame;
-import javax.swing.MutableComboBoxModel;
 import javax.swing.SwingUtilities;
 
 import org.fest.swing.edt.GuiActionRunner;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.fixture.FrameFixture;
 import org.fest.swing.fixture.JPanelFixture;
-import org.fest.swing.timing.Timeout;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,8 +33,6 @@ import umm.digiquilt.model.Grid;
 import umm.digiquilt.model.works.BlockWorks;
 import umm.digiquilt.model.works.UndoRedoStack;
 import umm.digiquilt.savehandler.SaveHandler;
-import umm.digiquilt.view.BlockViewer;
-import umm.digiquilt.view.WhatsHappeningPanel;
 import umm.digiquilt.xmlsaveload.SaveBlockXML;
 
 /**

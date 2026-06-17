@@ -9,12 +9,9 @@ package umm.digiquilt.runtime;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Enumeration;
 
 import javax.jmdns.JmDNS;
-import javax.swing.UIDefaults;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 import umm.digiquilt.savehandler.SaveHandler;
 import umm.digiquilt.server.MdnsNetworkUtil;

@@ -12,12 +12,6 @@ import java.io.IOException;
 import org.junit.Test;
 import org.mockito.InOrder;
 
-import umm.digiquilt.server.ConnectionHandler;
-import umm.digiquilt.server.DQPHandler;
-import umm.digiquilt.server.MultiThreadedServer;
-import umm.digiquilt.server.QuiltServer;
-import umm.digiquilt.server.QuiltZeroconf;
-
 /**
  * Test the server and make sure that it's using the server, handler, and
  * zeroconf correctly.

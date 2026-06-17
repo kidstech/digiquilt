@@ -43,7 +43,6 @@ import umm.digiquilt.model.Challenge;
 import umm.digiquilt.model.works.BlockWorks;
 import umm.digiquilt.model.works.PatchWorks;
 import umm.digiquilt.savehandler.SaveHandler;
-import umm.digiquilt.view.blockAnimation.UserSlideshow;
 import umm.digiquilt.view.challenge.ChallengePanel;
 import umm.digiquilt.view.fabriccontrols.FabricPalette;
 import umm.digiquilt.view.fabriccontrols.ReplaceAllColorPanel;

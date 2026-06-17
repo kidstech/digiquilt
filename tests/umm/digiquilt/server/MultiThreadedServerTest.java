@@ -20,10 +20,6 @@ import java.net.Socket;
 
 import org.junit.Test;
 
-import umm.digiquilt.server.ConnectionHandler;
-import umm.digiquilt.server.MultiThreadedServer;
-
-
 /**
  * @author Jason Biatek, last changed by $Author: biatekjt $
  * on $Date: 2009-07-06 00:45:14 $

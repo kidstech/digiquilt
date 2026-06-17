@@ -4,9 +4,6 @@ package umm.digiquilt.server;
 import java.io.File;
 import java.io.IOException;
 
-import umm.digiquilt.server.QuiltZeroconf;
-import umm.digiquilt.server.MdnsNetworkUtil;
-
 /**
  * Create and run a DigiQuilt server. This involves advertising it over JmDNS,
  * and starting the server with the appropriate handling behind it.

@@ -14,7 +14,6 @@ import umm.digiquilt.control.patches.PatchWorkMouseListener;
 import umm.digiquilt.model.Patch;
 import umm.digiquilt.model.works.PatchWorks;
 import umm.digiquilt.savehandler.SaveHandler;
-import umm.digiquilt.view.PatchViewer;
 /**
  * Panel For loading patches into the Digiquilt Client
  */

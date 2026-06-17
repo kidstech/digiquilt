@@ -1,7 +1,6 @@
 package umm.digiquilt.xmlsaveload;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.File;
@@ -32,7 +31,6 @@ import umm.digiquilt.model.Grid;
 import umm.digiquilt.model.Patch;
 import umm.digiquilt.model.PatchTest;
 import umm.digiquilt.model.works.UndoRedoStack;
-import umm.digiquilt.xmlsaveload.SaveBlockXML;
 
 /**
  * Test the SaveXML class.

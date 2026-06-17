@@ -4,10 +4,6 @@ import static junit.framework.Assert.*;
 
 import org.junit.Test;
 
-import umm.digiquilt.model.Fabric;
-import umm.digiquilt.model.Patch;
-import umm.digiquilt.model.Shape;
-
 /**
  * Test the Shape enum.
  */

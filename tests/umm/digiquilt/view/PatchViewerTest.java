@@ -19,8 +19,6 @@ import org.junit.Test;
 import umm.digiquilt.model.Fabric;
 import umm.digiquilt.model.Patch;
 import umm.digiquilt.model.PatchTest;
-import umm.digiquilt.view.PatchViewer;
-
 
 /**
  * @author Jason Biatek, last changed by $Author: biatekjt $

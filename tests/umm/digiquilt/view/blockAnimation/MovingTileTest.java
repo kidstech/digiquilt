@@ -13,8 +13,6 @@ import org.junit.Test;
 
 import umm.digiquilt.model.Fabric;
 import umm.digiquilt.view.Tile;
-import umm.digiquilt.view.blockAnimation.MovingTile;
-
 
 /**
  * @author Jason Biatek, last changed by $Author: lamberty $

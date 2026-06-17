@@ -10,9 +10,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 

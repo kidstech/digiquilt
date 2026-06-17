@@ -24,7 +24,6 @@ import java.util.List;
 import javax.swing.ComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.MutableComboBoxModel;
 
 import umm.digiquilt.control.LoadBlockAction;
 import umm.digiquilt.model.Block;
@@ -32,7 +31,6 @@ import umm.digiquilt.model.Challenge;
 import umm.digiquilt.model.works.BlockWorks;
 import umm.digiquilt.savehandler.SaveHandler;
 import umm.digiquilt.savehandler.SyncListener;
-import umm.digiquilt.view.BlockViewer;
 import umm.digiquilt.view.filebrowser.MissingIcon;
 import umm.digiquilt.xmlsaveload.LoadXML;
 

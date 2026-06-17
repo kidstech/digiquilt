@@ -12,7 +12,6 @@ import static org.junit.Assert.fail;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +20,6 @@ import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -33,7 +31,6 @@ import umm.digiquilt.model.Fabric;
 import umm.digiquilt.model.Fraction;
 import umm.digiquilt.model.FractionChallenge;
 import umm.digiquilt.model.FreeformChallenge;
-
 
 /**
  * @author Jason Biatek, last changed by $Author: lamberty $

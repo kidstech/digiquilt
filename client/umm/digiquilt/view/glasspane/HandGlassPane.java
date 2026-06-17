@@ -16,8 +16,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import umm.digiquilt.view.glasspane.HandPaneHighlighted;
-
 /**
  * The GlassPane sits on top of the main frame, and is transparent. When it is 
  * turned on, it will paint the patch currently in the hand, as well as highlights
