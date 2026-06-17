@@ -100,6 +100,8 @@ public class NameFileEditor extends JDialog{
             textList.addElement(line);
         }
 
+        reader.close();
+
         textListView = new JList<>(textList);
         textListView.addListSelectionListener(new SelectionButtonChanger());
         textListView.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

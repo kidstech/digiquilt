@@ -166,6 +166,7 @@ public class DQPHandler implements ConnectionHandler {
                 while ((bytesRead = fis.read(buffer)) != -1){
                     out.write(buffer, 0, bytesRead);
                 }
+                fis.close();
             } else {
                 out.println("FILE NOT FOUND: "+fileName);
             }
@@ -319,6 +320,7 @@ public class DQPHandler implements ConnectionHandler {
                 while ((bytesRead = in.read(buffer)) != -1){
                     fos.write(buffer, 0, bytesRead);
                 }
+                fos.close();
             }
             out.close();
         } catch (IOException e){

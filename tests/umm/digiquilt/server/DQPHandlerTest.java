@@ -280,6 +280,7 @@ public class DQPHandlerTest {
         rng.nextBytes(contents);
         FileOutputStream fos = new FileOutputStream(testFile);
         fos.write(contents);
+        fos.close();
 
         handlerIn.returnLine("GET "+testFile.getName());
         
@@ -340,6 +341,7 @@ public class DQPHandlerTest {
                 counter++;
             }
         }
+        fin.close();
         assertEquals("Premature end of file", size, counter);
     }
 
@@ -401,6 +403,7 @@ public class DQPHandlerTest {
                         contents, readContents);
 
                 foundFile = true;
+                br.close();
             }
         }
         assertTrue("Autosaved file was not created on PUT", foundFile);
@@ -440,6 +443,7 @@ public class DQPHandlerTest {
                         contents, readContents);
 
                 foundFile = true;
+                br.close();
             }
         }
         assertTrue("Autosaved file was not created", foundFile);
@@ -545,6 +549,7 @@ public class DQPHandlerTest {
         assertEquals("The name file didn't match", 
                 "Appended name 2", nameFileIn.readLine());
         assertNull("File didn't end when expected", nameFileIn.readLine());
+        nameFileIn.close();
     }
     
     /**

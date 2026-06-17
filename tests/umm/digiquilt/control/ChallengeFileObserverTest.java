@@ -109,6 +109,7 @@ public class ChallengeFileObserverTest {
         out.println("Nope. This should choke and die.");
         testObserver.onSynchronize(makeMockHandler());
         assertEquals(0, challengeList.getSize());
+        out.close();
 
     }
     

@@ -827,6 +827,7 @@ public class SaveHandlerTest {
     private String readFromFile(File file) throws IOException{
         BufferedReader br = new BufferedReader(new FileReader(file));
         String ret = br.readLine();
+        br.close();
         return ret;
     }
 
