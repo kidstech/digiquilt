@@ -49,7 +49,7 @@ public class ChallengePanelTest {
     /**
      * The model behind the drop down box.
      */
-    private MutableComboBoxModel list = new DefaultComboBoxModel();
+    private MutableComboBoxModel<Challenge> list = new DefaultComboBoxModel<>();
     
     /**
      * Test listener

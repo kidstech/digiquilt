@@ -23,9 +23,13 @@ import org.fest.swing.timing.Timeout;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import umm.digiquilt.model.Block;
 import umm.digiquilt.model.BlockTest;
+import umm.digiquilt.model.Challenge;
 import umm.digiquilt.model.FreeformChallenge;
 import umm.digiquilt.model.Grid;
 import umm.digiquilt.model.works.BlockWorks;
@@ -41,6 +45,7 @@ import umm.digiquilt.xmlsaveload.SaveBlockXML;
  * @version $Revision: 1.1 $
  *
  */
+@RunWith(MockitoJUnitRunner.class)
 public class WhatsHappeningPanelTest {
 
 
@@ -78,7 +83,9 @@ public class WhatsHappeningPanelTest {
     
     private final BlockWorks mockBW = mock(BlockWorks.class);
     private final SaveHandler mockHandler = mock(SaveHandler.class);
-    private final ComboBoxModel mockModel = mock(ComboBoxModel.class);
+
+    @Mock
+    private ComboBoxModel<Challenge> mockModel;
     
     /**
      * Set up the frame fixtures, etc.

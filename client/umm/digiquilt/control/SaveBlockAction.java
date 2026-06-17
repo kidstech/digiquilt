@@ -32,11 +32,11 @@ import umm.digiquilt.view.filebrowser.BlockSaveBrowser;
 public class SaveBlockAction extends AbstractAction {
 
     private BlockWorks blockWorks;
-    private ComboBoxModel challengePanel;
+    private ComboBoxModel<Challenge> challengePanel;
     private SaveHandler handler;
     
     public SaveBlockAction(BlockWorks blockWorks, 
-            ComboBoxModel challengePanel, SaveHandler handler){
+            ComboBoxModel<Challenge> challengePanel, SaveHandler handler){
         super("Save...");
         this.blockWorks = blockWorks;
         this.challengePanel = challengePanel;

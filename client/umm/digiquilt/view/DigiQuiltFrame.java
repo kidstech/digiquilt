@@ -39,6 +39,7 @@ import umm.digiquilt.control.CreateChallengeAction;
 import umm.digiquilt.control.LoadBlockAction;
 import umm.digiquilt.control.MainFrameAnimationController;
 import umm.digiquilt.control.SaveBlockAction;
+import umm.digiquilt.model.Challenge;
 import umm.digiquilt.model.works.BlockWorks;
 import umm.digiquilt.model.works.PatchWorks;
 import umm.digiquilt.savehandler.SaveHandler;
@@ -106,7 +107,7 @@ public class DigiQuiltFrame extends JFrame {
 
     private TrashPanel trash;
 
-    private final DefaultComboBoxModel challenges = new DefaultComboBoxModel();
+    private final DefaultComboBoxModel<Challenge> challenges = new DefaultComboBoxModel<>();
 
     /**
      * The main DigiQuilt frame, contains all the other stuff.

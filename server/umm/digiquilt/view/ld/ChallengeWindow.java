@@ -59,7 +59,7 @@ public class ChallengeWindow extends JFrame {
      */
     JPanel quiltPanel = new JPanel();
     
-    MutableComboBoxModel challenges = new DefaultComboBoxModel();
+    MutableComboBoxModel<Challenge> challenges = new DefaultComboBoxModel<>();
     
     /**
      * The challenge panel.

@@ -29,10 +29,10 @@ import umm.digiquilt.xmlsaveload.SaveBlockXML;
 public class ClearAction implements ActionListener {
     
     private BlockWorks blockWorks;
-    private ComboBoxModel challengePanel;
+    private ComboBoxModel<Challenge> challengePanel;
     private SaveHandler handler;
     
-    public ClearAction(BlockWorks blockWorks, ComboBoxModel challengePanel, 
+    public ClearAction(BlockWorks blockWorks, ComboBoxModel<Challenge> challengePanel, 
             SaveHandler handler){
         this.blockWorks = blockWorks;
         this.challengePanel = challengePanel;

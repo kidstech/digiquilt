@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 
 import org.xml.sax.SAXException;
 
+import umm.digiquilt.model.Challenge;
 import umm.digiquilt.model.Grid;
 import umm.digiquilt.model.works.BlockWorks;
 import umm.digiquilt.savehandler.SaveHandler;
@@ -56,7 +57,7 @@ public class LoadBlockAction extends AbstractAction {
     /**
      * Access to the list of current challenges
      */
-    private ComboBoxModel challenges;
+    private ComboBoxModel<Challenge> challenges;
 
     /**
      * Present to the user a file chooser to load a new DigiQuilt file. The
@@ -74,7 +75,7 @@ public class LoadBlockAction extends AbstractAction {
      * @param challenges 
      */
     public LoadBlockAction(BlockWorks blockWorks, SaveHandler handler,
-            ComboBoxModel challenges){
+            ComboBoxModel<Challenge> challenges){
         this(blockWorks, handler, challenges, null);
     }
     
@@ -97,7 +98,7 @@ public class LoadBlockAction extends AbstractAction {
      * user.
      */
     public LoadBlockAction(BlockWorks blockWorks, SaveHandler handler,
-            ComboBoxModel challenges, File selectedFile){
+            ComboBoxModel<Challenge> challenges, File selectedFile){
         super("Open...");
         this.blockWorks = blockWorks;
         this.handler = handler;
