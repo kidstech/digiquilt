@@ -59,7 +59,7 @@ import umm.digiquilt.view.patchworkarea.PatchWorkArea;
  */
 
 @SuppressWarnings("serial")
-//Serializations of JFrame being supressed
+//Serializations of JFrame being suppressed
 public class DigiQuiltFrame extends JFrame {
 
     private SaveHandler handler;
@@ -79,7 +79,7 @@ public class DigiQuiltFrame extends JFrame {
      * GUI element that deals with pixels rather than hardcoding the idea
      * that it is always 100x100.
      */
-    private static final int PATCHSIZE = 100;
+    private static final int PATCH_SIZE = 100;
 
     private WhatsHappeningPanel happeningBar;
 
@@ -152,7 +152,7 @@ public class DigiQuiltFrame extends JFrame {
             handler.synchronize();
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null,
-                    "An error occured trying to connect to the server.",
+                    "An error occurred trying to connect to the server.",
                     "I/O error",
                     JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
@@ -162,7 +162,7 @@ public class DigiQuiltFrame extends JFrame {
     
     
     private void createComponents(){
-        patchWorks = new PatchWorks(handGlassPane, PATCHSIZE);
+        patchWorks = new PatchWorks(handGlassPane, PATCH_SIZE);
         
         
         happeningBar = new WhatsHappeningPanel(
@@ -178,7 +178,7 @@ public class DigiQuiltFrame extends JFrame {
 
         fabricPalette = new FabricPalette(blockWorks);
 
-        shapesPalette = new ShapesPalette(patchWorks, PATCHSIZE);
+        shapesPalette = new ShapesPalette(patchWorks, PATCH_SIZE);
         fabricPalette.addFabricListener(shapesPalette);
         
         basketPanel = new ImageBackground("/umm/digiquilt/view/images/Baskettile.png");
@@ -188,7 +188,7 @@ public class DigiQuiltFrame extends JFrame {
         
         // Create the Block Work Area -- this is a BlockViewer and
         // a GridViewer, stacked on top of each other in a JLayeredPane
-        blockWorkArea = new BlockWorkArea(blockWorks, patchWorks, PATCHSIZE);
+        blockWorkArea = new BlockWorkArea(blockWorks, patchWorks, PATCH_SIZE);
 
         
         // Create a BlockSizePanel which can change the current block to a
@@ -207,7 +207,7 @@ public class DigiQuiltFrame extends JFrame {
         
         
         // Create the Patch Work Area. 
-        patchWorkArea = new PatchWorkArea(patchWorks, blockWorks, PATCHSIZE);
+        patchWorkArea = new PatchWorkArea(patchWorks, blockWorks, PATCH_SIZE);
 
         
         replaceAllColorUI = new ReplaceAllColorPanel(patchWorks, blockWorks);
@@ -215,7 +215,7 @@ public class DigiQuiltFrame extends JFrame {
         // selected
         fabricPalette.addFabricListener(replaceAllColorUI);
         
-        loadPatchPanel = new LoadPatchPanel(patchWorks, PATCHSIZE, handler);
+        loadPatchPanel = new LoadPatchPanel(patchWorks, PATCH_SIZE, handler);
         
         trash = new TrashPanel(patchWorks);
 
